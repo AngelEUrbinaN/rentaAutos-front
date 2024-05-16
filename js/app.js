@@ -38,6 +38,7 @@ if (registrarForm){
       console.log('@@ res =>', res)
       if (res.message === 'Usuario Registrado Satisfactoriamente') {
         console.log('Qué chingón, se logró')
+        window.location.href = './index.html'
     }
     })
     .catch((err) => {

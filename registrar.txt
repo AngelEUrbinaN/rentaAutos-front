@@ -1,0 +1,81 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="https://e7.pngegg.com/pngimages/338/824/png-clipart-mexican-cuisine-mr-taco-logo-taco-catering-fresh-94566.png"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form id="registrarForm" method="POST" action="../rentaAutos-back/index.php">
+            <input type="hidden" name="accion" value="registrar">
+
+            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
+              <p class="lead fw-normal mb-0 me-3">Sign up right now!</p>
+            </div>
+  
+            <!-- Nombre -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="nombre" class="form-control form-control-lg"
+                placeholder="Enter a name" name="nombre"/>
+              <label class="form-label" for="nombre">Nombre</label>
+            </div>
+
+            <!-- Apellidos -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="apellidos" class="form-control form-control-lg"
+                placeholder="Enter a valid apellidos" name="apellidos" />
+              <label class="form-label" for="apellidos">Apellidos</label>
+            </div>
+
+            <!-- Fecha Nacimiento -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="fechaNacimiento" class="form-control form-control-lg"
+                placeholder="Enter a valid fechaNacimiento" name="fechaNacimiento"/>
+              <label class="form-label" for="fechaNacimiento">fechaNacimiento</label>
+            </div>
+
+            <!-- Genero -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="genero" class="form-control form-control-lg"
+                placeholder="Enter a valid genero" name="genero"/>
+              <label class="form-label" for="direccion">genero</label>
+            </div>
+
+            <!-- Correo -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="email" id="correo" class="form-control form-control-lg"
+                placeholder="Enter a valid email address" name="correo" />
+              <label class="form-label" for="correo">Correo</label>
+            </div>
+
+            <!-- Telefono -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="telefono" class="form-control form-control-lg"
+                placeholder="Enter a valid telefono" name="telefono"/>
+              <label class="form-label" for="telefono">Telefono</label>
+            </div>
+
+            <!-- Direccion-->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="direccion" class="form-control form-control-lg"
+                placeholder="Enter a valid direccion" name="direccion" />
+              <label class="form-label" for="form3Example3">direccion</label>
+            </div>
+  
+            <!-- Password input -->
+            <div data-mdb-input-init class="form-outline mb-3">
+              <input type="password" id="password" class="form-control form-control-lg"
+                placeholder="Enter password" name="password" />
+              <label class="form-label" for="password">Password</label>
+            </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" value="Registar"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Sign up</button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
