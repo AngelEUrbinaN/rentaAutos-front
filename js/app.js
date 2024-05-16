@@ -15,7 +15,7 @@ if (loginForm) {
     .then ((res) => {
       console.log('@@ res =>', res)
       if (res.message === 'Inicio Satisfactorio') {
-        console.log('Awebo funciono')
+        window.location.href = '../rentaAutos-front/home.html'
     }
     })
     .catch((err) => {
