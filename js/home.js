@@ -3,6 +3,7 @@ const rowAutos = document.getElementById('rowAutos').content
 const idForm = document.getElementById('idForm')
 const inputId = document.getElementById('id')
 const fragment = document.createDocumentFragment()
+const rentaButton = document.getElementById('renta') || null
 
 document.addEventListener('DOMContentLoaded', () => {
     loadAllAutos()
@@ -41,3 +42,10 @@ const pintarAutos = autos => {
     })
     autosBody.appendChild(fragment)
 }
+
+if (rentaButton) {
+    rentaButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      window.location.href = './renta.html'
+    })
+  }
