@@ -36,6 +36,11 @@ const pintarAutos = (autos) => {
         clone.querySelector('.localizacion').textContent = auto.aut_localizacion
         clone.querySelector('.btn-danger').dataset.id = auto.aut_id
 
+        const btnRentar = clone.querySelector('.btn-danger')
+        btnRentar.addEventListener('click', () => {
+            window.location.href = '../rentaAutos-front/rentar.html'
+        })
+
         fragment.appendChild(clone)
     })
     autosBody.appendChild(fragment)
