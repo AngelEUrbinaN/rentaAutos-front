@@ -15,7 +15,7 @@ if (loginForm) {
     .then ((res) => {
       console.log('@@ res =>', res)
       if (res.message === 'Inicio Satisfactorio') {
-        window.location.href = '../rentaAutos-front/home.html'
+        window.location.href = '../rentaAutos-front/card.html'
     }
     })
     .catch((err) => {
@@ -38,7 +38,7 @@ if (registrarForm){
       console.log('@@ res =>', res)
       if (res.message === 'Usuario Registrado Satisfactoriamente') {
         console.log('Qué chingón, se logró')
-        window.location.href = './index.html'
+        window.location.href = '../rentaAutos-front/index.html'
     }
     })
     .catch((err) => {
