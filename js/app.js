@@ -15,7 +15,7 @@ if (loginForm) {
     .then ((res) => {
       console.log('@@ res =>', res)
       if (res.message === 'Inicio Satisfactorio') {
-        window.location.href = '../rentaAutos-front/home.html'
+        window.location.href = '../rentaAutos-front/card.html'
     }
     })
     .catch((err) => {

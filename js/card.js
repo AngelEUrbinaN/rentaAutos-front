@@ -32,6 +32,7 @@ const pintarAutos = (autos) => {
         clone.querySelector('.asientos').textContent = auto.aut_asientos
         clone.querySelector('.transmision').textContent = auto.aut_transmision
         clone.querySelector('.costo').textContent = auto.aut_costoDia
+<<<<<<< HEAD
         clone.querySelector('.disponible').textContent = auto.aut_disponible 
         clone.querySelector('.localizacion').textContent = auto.aut_localizacion
         clone.querySelector('.btn-danger').dataset.id = auto.aut_id
@@ -41,6 +42,12 @@ const pintarAutos = (autos) => {
             window.location.href = '../rentaAutos-front/rentar.html'
         })
 
+=======
+        clone.querySelector('.disponible').textContent = auto.aut_disponible
+        clone.querySelector('.localizacion').textContent = auto.aut_localizacion
+        clone.querySelector('.btn-danger').dataset.id = auto.aut_id
+
+>>>>>>> ddc9b43a219980800cba4ba2b77067bccaa111ba
         fragment.appendChild(clone)
     })
     autosBody.appendChild(fragment)
