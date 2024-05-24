@@ -1,4 +1,24 @@
-const rentarForm = document.getElementById('rentarForm') || null 
+const rentarForm = document.getElementById('rentarForm') || null
+let idUser = document.getElementById('usuarioId')
+let idAuto = document.getElementById('autoId')
+
+document.addEventListener('DOMContentLoaded', () => {
+  const params = new URLSearchParams(window.location.search)
+  const userId = params.get('id')
+  const autoId = params.get('auto')
+
+  console.log(params)
+
+  if (userId) {
+      console.log('@@ idUser => ', userId)
+      idUser.value = userId
+  }
+
+  if (autoId) {
+    console.log('@@ idAuto => ', autoId)
+    idAuto.value = autoId
+  }
+})
 
 if (rentarForm){
     rentarForm.addEventListener('submit', (event) => {

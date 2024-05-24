@@ -1,3 +1,4 @@
+let idUser = document.getElementById('id')
 const autosBody = document.getElementById('autosBody')
 const cardAutos = document.getElementById('cardAutos').content
 const idForm = document.getElementById('idForm')
@@ -6,6 +7,14 @@ const fragment = document.createDocumentFragment()
 
 document.addEventListener('DOMContentLoaded', () => {
     loadAllAutos()
+
+    const params = new URLSearchParams(window.location.search)
+    const userId = params.get('id')
+
+    if (userId) {
+        console.log('@@ id => ', userId)
+        idUser = userId
+    }
 })
 
 const loadAllAutos = () => {
@@ -38,7 +47,10 @@ const pintarAutos = (autos) => {
 
         const btnRentar = clone.querySelector('.btn-danger')
         btnRentar.addEventListener('click', () => {
-            window.location.href = '../rentaAutos-front/rentar.html'
+            console.log('user id => ', idUser)
+            console.log('auto id => ', btnRentar.dataset.id)
+            const autoId = btnRentar.dataset.id
+            window.location.href = `../rentaAutos-front/rentar.html?id=${idUser}&auto=${autoId}`
         })
 
         fragment.appendChild(clone)
