@@ -13,9 +13,10 @@ if (loginForm) {
     })
     .then((response) => response.json())
     .then ((res) => {
-      console.log('@@ res =>', res)
+      //console.log('@@ res =>', res)
       if (res.message === 'Inicio Satisfactorio') {
-        window.location.href = '../rentaAutos-front/card.html'
+        console.log('usu_id => ', res.data.usu_id)
+        window.location.href = `../rentaAutos-front/home.html?id=${res.data.usu_id}`
     }
     })
     .catch((err) => {
