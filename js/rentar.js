@@ -1,4 +1,7 @@
 const rentarForm = document.getElementById('rentarForm') || null
+const diaInicio = document.getElementById('diaInicio')
+const diaFin = document.getElementById('diaFin')
+const costoEstimado = document.getElementById('costoEstimado')
 let idUser = document.getElementById('usuarioId')
 let idAuto = document.getElementById('autoId')
 
@@ -40,4 +43,19 @@ if (rentarForm){
         console.log('@@ err =>', err)
       })   
     })
+}
+
+const calcularCostoEstimado = () => {
+  const inicio = new Date(diaInicio.value);
+  const fin = new Date(diaFin.value);
+  console.log(diaInicio.value)
+
+  if (inicio && fin && !isNaN(inicio) && !isNaN(fin)) {
+    const differenceInTime = fin.getTime() - inicio.getTime()
+    const differenceInDays = differenceInTime / (1000 * 3600 * 24)
+    const result = differenceInDays * 50
+    costoEstimado.value = result
+  } else {
+    costoEstimado.value = ''
   }
+}
