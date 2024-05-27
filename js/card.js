@@ -83,8 +83,7 @@ const pintarAutosByUser = (rentasEnDeuda) => {
             const btnFinalizar = clone.querySelector('.btn-danger')
             btnFinalizar.addEventListener('click', () => {
                 const rentaId = btnFinalizar.dataset.id
-                
-                //window.location.href = `../rentaAutos-front/finalizar.html?renta=${rentaId}`
+                window.location.href = `../rentaAutos-front/finalizar.html?renta=${rentaId}`
             })
 
             fragment.appendChild(clone)
