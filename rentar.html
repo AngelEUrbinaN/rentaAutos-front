@@ -19,31 +19,20 @@
           <form id="rentarForm" method="POST" action="../rentaAutos-back/index.php">
             <input type="hidden" name="accion" value="rentar">
             <input type="hidden" name="id" id="id">
-
-            <!-- Nombre -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="nombre" class="form-control form-control-lg"
-                placeholder="usuarioId" name="usuarioId"/>
-              <label class="form-label" for="usuarioId">usuarioId</label>
-            </div>
-
-            <!-- A. Paterno -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="autoId" class="form-control form-control-lg"
-                placeholder="autoId" name="autoId" />
-              <label class="form-label" for="autoId">autoId</label>
-            </div>
+            <input type="hidden" name="usuarioId" id="usuarioId">
+            <input type="hidden" name="autoId" id="autoId">
+            <input type="hidden" name="costoDia" id="costoDia">
 
             <!-- A. Materno -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="diaInicio" class="form-control form-control-lg"
+              <input type="date" id="diaInicio" class="form-control form-control-lg"
                 placeholder="diaInicio" name="diaInicio"/>
               <label class="form-label" for="diaInicio">diaInicio</label>
             </div>
 
             <!-- Direccion -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="diaFin" class="form-control form-control-lg"
+              <input type="date" id="diaFin" class="form-control form-control-lg"
                 placeholder="diaFin" name="diaFin"/>
               <label class="form-label" for="diaFin">diaFin</label>
             </div>
@@ -51,22 +40,8 @@
             <!-- Telefono -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="text" id="costoEstimado" class="form-control form-control-lg"
-                placeholder="costoEstimado" name="costoEstimado"/>
+                placeholder="costoEstimado" name="costoEstimado" readonly/>
               <label class="form-label" for="costoEstimado">costoEstimado</label>
-            </div>
-
-            <!-- Correo -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="finReal" class="form-control form-control-lg"
-                placeholder="finReal" name="finReal" />
-              <label class="form-label" for="finReal">finReal</label>
-            </div>
-
-            <!-- Usuario-->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="costoReal" class="form-control form-control-lg"
-                placeholder="costoReal" name="costoReal" />
-              <label class="form-label" for="costoReal">costoReal</label>
             </div>
   
             <div class="text-center text-lg-start mt-4 pt-2">
@@ -76,10 +51,9 @@
           </form>
         </div>
                     
-        <form id="idFormUpdate" method="POST" style="display: none;">
+        <form id="idFormCosto" method="POST" style="display: none;">
           <input type="hidden" name="accion" id="accion">
-          <input type="hidden" name="idUpdate" id="idUpdate">
-          <!-- Usuario input-->
+          <input type="hidden" name="autID" id="autID">
         </form>
       </div>
     </div>
