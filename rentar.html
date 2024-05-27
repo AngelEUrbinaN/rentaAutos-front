@@ -28,6 +28,7 @@
                 </li>
             </ul>
         </div>
+<<<<<<< HEAD
     </div>
   </nav>
 
@@ -81,6 +82,19 @@
             <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" value="Registar"
               style="padding-left: 2.5rem; padding-right: 2.5rem;">Rentar</button>
           </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form id="rentarForm" method="POST" action="../rentaAutos-back/index.php">
+            <input type="hidden" name="accion" value="rentar">
+            <input type="hidden" name="id" id="id">
+            <input type="hidden" name="usuarioId" id="usuarioId">
+            <input type="hidden" name="autoId" id="autoId">
+            <input type="hidden" name="costoDia" id="costoDia">
+          </form>
+        </div>
+                    
+        <form id="idFormCosto" method="POST" style="display: none;">
+          <input type="hidden" name="accion" id="accion">
+          <input type="hidden" name="autID" id="autID">
         </form>
       </div>
     </div>

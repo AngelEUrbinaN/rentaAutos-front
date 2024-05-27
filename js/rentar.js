@@ -53,6 +53,7 @@ if (rentarForm){
         console.log('@@ res =>', res)
         if (res.message === 'Renta Registrada Satisfactoriamente') {
           console.log('Maracatanga, sí se registró')
+          window.location.href = `../rentaAutos-front/home.html`
       }
       })
       .catch((err) => {

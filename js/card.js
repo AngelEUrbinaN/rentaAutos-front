@@ -2,6 +2,8 @@ let idUser = document.getElementById('id')
 const userID = localStorage.getItem('userID')
 const autosBody = document.getElementById('autosBody')
 const cardAutos = document.getElementById('cardAutos').content
+const autosEnDeudaBody = document.getElementById('autosEnDeudaBody')
+const cardAutosEnDeuda = document.getElementById('cardAutosEnDeuda').content
 const fragment = document.createDocumentFragment()
 
 const idForm = document.getElementById('idForm')
@@ -43,10 +45,12 @@ const loadAllAutosByUser = id => {
 	})
 	.then((response) => response.json())
 	.then((data) => {
+
+		const rentasEnDeuda = []
 			if (data.success) {
 					data.rentas.forEach((renta) => {
 							if (renta.rent_finReal === null) {
-									console.log('Renta sin finalizar => ', renta.aut_id);
+								rentasEnDeuda.push(renta)
 							} else {
 									console.log('Renta finalizada => ', renta.renta_id);
 							}
@@ -54,10 +58,43 @@ const loadAllAutosByUser = id => {
 			} else {
 					console.log('No se pudo obtener los datos')
 			}
+
+			console.log(rentasEnDeuda)
+		pintarAutosByUser(rentasEnDeuda)
 	})
 	.catch((err) => {
 			console.log('@@@ err => ', err);
 	})
+}
+
+const pintarAutosByUser = (rentasEnDeuda) => {
+	autosEnDeudaBody.innerHTML = ''
+    rentasEnDeuda.forEach((renta) => {
+        if (renta.rent_finReal != 'null') {
+            const clone = cardAutosEnDeuda.cloneNode(true)
+
+            clone.querySelector('.card-img-top').src = 'https://scontent.fbjx1-1.fna.fbcdn.net/v/t31.18172-8/17192380_1908830826070690_977825315259382856_o.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGxgVijDVSla80geWoS7v3Pf7VR8tWb5yB_tVHy1ZvnIPWWg9OO5lQziPptsuZ4yHBKjpMljgstpgsBJGzmas05&_nc_ohc=slaHOJmBovcQ7kNvgGr1nhO&_nc_ht=scontent.fbjx1-1.fna&oh=00_AYA1VSTqgWlDXlEQfZcO7_JXDpgyXf7Tt57peGGhfNKhzw&oe=667B6EB9'
+            clone.querySelector('.card-title').textContent = renta.aut_modelo
+            clone.querySelector('.asientos').textContent = renta.aut_asientos
+            clone.querySelector('.transmision').textContent = renta.aut_transmision
+            clone.querySelector('.costo').textContent = renta.aut_costoDia
+            clone.querySelector('.disponible').textContent = renta.aut_disponible 
+            clone.querySelector('.localizacion').textContent = renta.aut_localizacion
+            clone.querySelector('.btn-danger').dataset.id = renta.renta_id
+
+            const btnFinalizar = clone.querySelector('.btn-danger')
+            btnFinalizar.addEventListener('click', () => {
+                const rentaId = btnFinalizar.dataset.id
+                
+                //window.location.href = `../rentaAutos-front/finalizar.html?renta=${rentaId}`
+            })
+
+            fragment.appendChild(clone)
+        } else {
+            console.log ('@@@ Esta renta esta acabada => ', renta.renta_id)
+        }
+    })
+    autosEnDeudaBody.appendChild(fragment)
 }
 
 const pintarAutos = (autos) => {
