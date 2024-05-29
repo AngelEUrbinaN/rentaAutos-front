@@ -45,7 +45,6 @@ const loadAllAutosByUser = id => {
 	})
 	.then((response) => response.json())
 	.then((data) => {
-
 		const rentasEnDeuda = []
 			if (data.success) {
 					data.rentas.forEach((renta) => {
@@ -58,7 +57,6 @@ const loadAllAutosByUser = id => {
 			} else {
 					console.log('No se pudo obtener los datos')
 			}
-
 			console.log(rentasEnDeuda)
 		pintarAutosByUser(rentasEnDeuda)
 	})
@@ -80,14 +78,7 @@ const pintarAutosByUser = (rentasEnDeuda) => {
             clone.querySelector('.costo').textContent = renta.aut_costoDia
             clone.querySelector('.disponible').textContent = renta.aut_disponible 
             clone.querySelector('.localizacion').textContent = renta.aut_localizacion
-            clone.querySelector('.btn-danger').dataset.id = renta.renta_id
-
-            const btnFinalizar = clone.querySelector('.btn-danger')
-            btnFinalizar.addEventListener('click', () => {
-                const rentaId = btnFinalizar.dataset.id
-                
-                //window.location.href = `../rentaAutos-front/finalizar.html?renta=${rentaId}`
-            })
+            clone.querySelector('.btn-danger').dataset.id = renta.aut_id
 
             fragment.appendChild(clone)
         } else {
