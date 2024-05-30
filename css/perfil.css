@@ -1,197 +1,65 @@
-
-body  {
-  font-family: "Arial", Helvetica, sans-serif }
-
-.section-perfil .perfil-body,
-.section-perfil {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
+body {
+    margin-top: 20px;
+    background-color: lightgray;
 }
 
-.section-perfil .perfil-header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    background: linear-gradient(#B873FF, transparent);
-    margin-bottom: 1.25rem;
+.main {
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.section-perfil .perfil-portada {
-    display: block;
-    position: relative;
-    width: 90%;
-    height: 17rem;
-    background-image: linear-gradient(45deg, #BC3CFF, #317FFF);
-    border-radius: 0 0 20px 20px;
+.topbar {
+    background-color: teal;
+    overflow: hidden;
 }
 
-.section-perfil .perfil-portada .boton-portada {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    border: 0;
-    border-radius: 8px;
-    padding: 12px 25px;
-    background-color: rgba(0, 0, 0, .5);
-    color: #fff;
-    cursor: pointer;
-}
-
-.section-perfil .perfil-portada .boton-portada i {
-    margin-right: 1rem;
-}
-
-.section-perfil .perfil-avatar {
-    display: flex;
-    width: 180px;
-    height: 180px;
-    align-items: center;
-    justify-content: center;
-    border: 7px solid #FFFFFF;
-    background-color: #DFE5F2;
-    border-radius: 50%;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    bottom: -40px;
-    left: calc(50% - 90px);
-    z-index: 1;
-}
-
-.section-perfil .perfil-avatar img {
-    width: 100%;
-    position: relative;
-    border-radius: 50%;
-}
-
-.section-perfil .perfil-avatar .boton-avatar{ 
-    position: absolute;
-    left: -2px;
-    top: -2px;
-    border: 0;
-    background-color: #fff;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.section-perfil .perfil-body {
-    width: 70%;
-    position: relative;
-    max-width: 750px;
-}
-
-.section-perfil .perfil-body .titulo { 
-    display: block;
-    width: 100%;
-    font-size: 1.75em;
-    margin-bottom: 0.5rem;
-}
-
-.section-perfil .perfil-body .texto { 
-    color: #848484;
-    font-size: 0.95em;
-}
-
-.section-perfil .perfil-footer,
-.section-perfil .perfil-bio {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
-    background-color: #FFFFFF;
-    border-radius: 15px;
+.topbar a{
+    float: right;
+    color: whitesmoke;
     text-align: center;
-    width: 100%;
-}
-
-.section-perfil .perfil-bio {
-    margin-bottom: 1.25rem;
-    text-align: center;
-}
-
-.section-perfil .lista-datos {
-    width: 50%;
-    list-style: none;
-    padding: 0;
-}
-
-.section-perfil .lista-datos li {
-    padding: 5px 0;
-}
-
-.section-perfil .lista-datos li>.icono {
-    margin-right: 1rem;
-    font-size: 1.2rem;
-    vertical-align: middle;
-}
-
-.section-perfil .redes { 
-    position: absolute;
-    right: calc(0px - 50px - 1rem);
-    top: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-.section-perfil .redes .boton-redes {
-    border: 0;
-    background-color: #fff;
+    padding: 20px 26px;
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    color: #fff;
-    box-shadow: 0 0 12px rgba(0, 0, 0, .2);
-    font-size: 1.3rem;
+    font-size: 26px;
 }
 
-.section-perfil .redes .boton-redes+.boton-redes {
-    margin-top: .5rem;
+.sidebar{
+    background-color: #333;
+    color: white;
+    height: 100%;
 }
 
-.section-perfil .boton-redes.facebook {
-    background-color: #5955FF;
+.sidebar a{
+    margin-left: 10px;
+    display: block;
+    color: white;
+    padding-bottom: 10px;
+    font-size: 30px;
+    text-decoration: none;
 }
 
-.section-perfil .boton-redes.twitter {
-    background-color: #35E1BF;
+.card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
-.section-perfil .boton-redes.instagram {
-    background: linear-gradient(45deg, #FF2DFD, #40A7FF);
+.content{
+    background-color: whitesmoke;
 }
 
-@media (max-width: 750px){ 
-    .section-perfil .lista-datos{
-        width: 100%;
-    }
-
-    .section-perfil .perfil-portada,
-    .section-perfil .perfil-body{ 
-        width: 95%;
-    }
-
-    .section-perfil .redes {
-        position: relative;
-        flex-direction: row;
-        width: 100%;
-        left: 0;
-        text-align: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        align-items: center;
-        justify-content: center
-    }
-
-    .section-perfil .redes .boton-redes+.boton-redes {
-        margin-left: 1rem;
-        margin-top: 0;
-    }
+.text-secondary {
+    position: relative; /* Necesario para posicionar el ícono correctamente */
 }
+
+.edit-icon {
+    font-size: 14px; /* Reduce el tamaño del ícono */
+    opacity: 0.5; /* Ajusta la transparencia (1 es completamente opaco, 0 es completamente transparente) */
+    cursor: pointer;
+    transition: opacity 0.3s ease; /* Añade una transición suave para la opacidad */
+}
+
+h1:hover .edit-icon {
+    opacity: 1; /* Hace el ícono completamente opaco al pasar el cursor */
+}
+
+
