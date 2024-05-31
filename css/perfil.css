@@ -62,4 +62,17 @@ h1:hover .edit-icon {
     opacity: 1; /* Hace el ícono completamente opaco al pasar el cursor */
 }
 
+@media (max-width: 768px) {
+    .topbar a {
+        padding: 10px 15px; /* Menos padding */
+        font-size: 18px; /* Fuente más pequeña */
+    }
 
+    .sidebar a {
+        font-size: 20px; /* Ajusta el tamaño de la fuente en la barra lateral */
+    }
+
+    .edit-icon {
+        font-size: 12px; /* Ícono más pequeño */
+    }
+}
