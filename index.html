@@ -3,106 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión - Autos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #000000 0%, #0c44fa 30%, #0c44fa 50%, #0c44fa 70%, #000000 100%);
-        }
-
-        .bg-image {
-            background-image: url('images/AutoRenta.png');
-            background-size: cover;
-            background-position: center;
-        }
-
-        .card-custom {
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.7); /* Ajustado para más transparencia */
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            max-width: 400px;
-            width: 100%;
-        }
-
-        .centered-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .form-control, .input-group-text {
-            height: 48px;
-        }
-
-        .input-group .input-group-text {
-            cursor: pointer;
-            align-items: center;
-        }
-
-        .btn-block {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .bg-image {
-                display: none;
-            }
-        }
-    </style>
+    <title>BeeCars</title>
+    <!-- CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="css/mainScreen.css">
 </head>
 <body>
-
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 d-none d-md-block bg-image"></div>
-        <div class="col-md-6">
-            <div class="centered-container">
-                <div class="card card-custom">
-                    <div class="card-body">
-                        <h3 class="card-title text-center mb-4">Bienvenido</h3>
-                        <form action="../rentaAutos-back/index.php" method="post" id="loginForm">
-                            <input type="hidden" name="accion" value="login">
-                            <div class="form-outline mb-3">
-                                <input type="text" id="correo" class="form-control" name="correo" placeholder="Correo"/>
-                            </div>
-                            <div class="form-outline mb-3">
-                                <div class="input-group">
-                                    <input type="password" id="password" class="form-control" name="password" placeholder="Contraseña"/>
-                                    <span class="input-group-text"><i class="bi bi-eye-slash" id="toggleIcon" onclick="togglePasswordVisibility()"></i></span>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
-                            <button id="signUp" type="button" class="btn btn-warning btn-block">Registrarse</button>
-                        </form>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to right, #000000, #000080);">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#inicio" style="color: #FFF;">BeeCars</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <!-- Contenedor para los enlaces y el botón de iniciar sesión -->
+                <div class="d-flex">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" href="#inicio" style="color: #FFF;">Inicio</a>
+                        <a class="nav-link" href="#sobre-nosotros" style="color: #FFF;">Sobre Nosotros</a>
+                        <a class="nav-link" href="#contacto" style="color: #FFF;">Contacto</a>
                     </div>
+                    <!-- Botón de Iniciar Sesión -->
+                    <button class="btn btn-outline-light ms-3" type="button" onclick="location.href='login.html';">Iniciar Sesión</button>
                 </div>
             </div>
         </div>
+    </nav>
+
+    <!-- Inicio de la página -->
+    <div id="inicio" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/carrusel/Lol1.jpg" class="d-block w-100" alt="Imagen 1">
+            </div>
+            <div class="carousel-item">
+                <img src="images/carrusel/Lol2.jpg" class="d-block w-100" alt="Imagen 2">
+            </div>
+            <div class="carousel-item">
+                <img src="images/carrusel/Lol3.jpg" class="d-block w-100" alt="Imagen 3">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#inicio" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#inicio" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
     </div>
-</div>
 
-<script>
-    function togglePasswordVisibility() {
-        var passwordInput = document.getElementById('password');
-        var toggleIcon = document.getElementById('toggleIcon');
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
-            toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
-        } else {
-            passwordInput.type = 'password';
-            toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
-        }
-    }
-</script>
+    <!-- Sobre Nosotros -->
+    <section id="sobre-nosotros" class="container my-5" style="margin-top: -30px;">
+        <h2 class="text-center">Bienvenidos a BeeCars - Universidad de Guanajuato</h2>
+        <p class="text-center">
+            Este sitio web está dedicado a la renta de autos y fue creado con el objetivo de aplicar y expandir nuestros conocimientos en desarrollo web. Este proyecto sirve como una herramienta de aprendizaje y práctica en el contexto de la asignatura de Aplicaciones de Internet.
+        </p>
 
-<script src="./js/app.js"></script>
+		<h3 class="text-center mb-4">Equipo de Desarrolladores.</h3>
+		<div class="row">
+			<!-- Columnas para cada miembro del equipo -->
+			<div class="col-md-3 text-center">
+				<img src="images/team/Angel.jpg" class="img-fluid rounded-circle mb-1" alt="Angel Emmanuel Urbina Navarrete">
+				<h4 style="margin-top: 3px;">Angel Emmanuel Urbina Navarrete</h4>
+				<p>
+					<a href="https://instagram.com/" class="me-2" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+					<a href="https://facebook.com/angelemmanuel.urbinanavarrete" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+				</p>
+			</div>
+			<div class="col-md-3 text-center">
+				<img src="images/team/YoMero.jpg" class="img-fluid rounded-circle mb-1" alt="Jonathan Antonio Vallejo Pérez">
+				<h4 style="margin-top: 7px;">Jonathan Antonio Vallejo Pérez</h4>
+				<p>
+					<a href="https://instagram.com/jonnyyy.v/" class="me-2" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+					<a href="https://facebook.com/Jonathan.Vallejo17/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+				</p>
+			</div>
+			<div class="col-md-3 text-center">
+				<img src="images/team/Coronilla.jpg" class="img-fluid rounded-circle mb-1" alt="Emmanuel Coronilla Hernandez">
+				<h4 style="margin-top: 7px;">Emmanuel Coronilla Hernandez</h4>
+				<p>
+					<a href="https://instagram.com/el.coronilla/" class="me-2" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+					<a href="https://facebook.com/emmanuel.coronilla.9" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+				</p>
+			</div>
+			<div class="col-md-3 text-center">
+				<img src="images/team/Hilario.jpg" class="img-fluid rounded-circle mb-1" alt="Hilario Garcia Gervacio">
+				<h4 style="margin-top: 10px;">Hilario Garcia</h4>
+				<h4 style="margin-top: -10px;">Gervacio</h4>
+				<p>
+					<a href="https://instagram.com/hilaryssgg/" class="me-2" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+					<a href="https://facebook.com/profile.php?id=100009476001765" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+				</p>
+			</div>
+		</div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto" class="text-center text-lg-start">
+		<div class="text-center p-3 footer-text">
+			© 2024 Derechos Reservados:
+			<a href="https://miweb.com/">miweb.com</a>
+		</div>
+	</footer>
+
+    <!-- JS de Bootstrap Bundle (incluye Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
