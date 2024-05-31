@@ -11,11 +11,79 @@
     color: #cccccc !important;
 }
 
+body {
+    background-color: #EEEEEE;
+}
+
+.title {
+    text-align: left; 
+    font-family: Arial Black; 
+    font-weight: bold; font-size: 30px; 
+    background: #202020; 
+    -webkit-background-clip: text; 
+    -moz-background-clip: text; 
+    background-clip: text; 
+    color: transparent; 
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+}
+
+.header-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Estilo de las tarjetas */
 .card-custom {
     margin-bottom: 1rem;
+    border: 1px solid #ddd; /* Borde alrededor de las tarjetas */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave para las tarjetas */
+    overflow: hidden;
+}
+
+.card-custom .card-body {
+    padding: 1rem; /* Espacio interior para el contenido de la tarjeta */
+}
+  
+.rounded-img {
+    border-radius: 10px 10px 0 0; /* Bordes redondeados en la parte superior de la imagen */
+}
+  
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.card-title {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold; 
 }
 
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.btn {
+    float: right;
+    width: calc(105% - 1rem);
+    margin: 0 auto;
+    width: 100%; 
+    border-radius: 0 0 10px 10px; 
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer a:hover {
+    color: #d4d4d4;
+    text-decoration: none;
 }
