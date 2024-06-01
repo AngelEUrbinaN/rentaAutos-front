@@ -70,28 +70,40 @@ if (rentarForm){
     })
 }
 
+
 pintarAutoData = (auto) => {
-  asientos.value = auto.auto.aut_asientos
-  costoDiaNH.value = auto.auto.aut_costoDia
-  modelo.value = auto.auto.aut_modelo
-  localizacion.value = auto.auto.aut_localizacion
-  transmision.value = auto.auto.aut_transmision
+  document.getElementById('infoAsientos').textContent = auto.auto.aut_asientos;
+  document.getElementById('infoCostoDia').textContent = auto.auto.aut_costoDia;
+  document.getElementById('costoDia').value = auto.auto.aut_costoDia; // Si todavía necesitas este para otra lógica de formulario
+  document.getElementById('infoModelo').textContent = auto.auto.aut_modelo;
+  document.getElementById('infoLocalizacion').textContent = auto.auto.aut_localizacion;
+  document.getElementById('infoTransmision').textContent = auto.auto.aut_transmision;
 }
 
-const calcularCostoEstimado = () => {
-  const inicio = new Date(diaInicio.value);
-  const fin = new Date(diaFin.value);
-  const costo = costoDia.value
-  console.log(diaInicio.value)
 
-  // Si la fecha de inicio y fin existen y no son nulos
-  if (inicio && fin && !isNaN(inicio) && !isNaN(fin)) {
-    const differenceInTime = fin.getTime() - inicio.getTime()
-    const differenceInDays = differenceInTime / (1000 * 3600 * 24)
-    const resultado = differenceInDays
-    costoEstimado.value = resultado * costo
+const calcularCostoEstimado = () => {
+  const inicio = new Date(diaInicio.value + 'T00:00:00') // Asegura que la fecha se interprete correctamente en la zona horaria local
+  const fin = new Date(diaFin.value + 'T00:00:00')
+  const costo = Number(costoDia.value) // Convierte el costo a número para evitar errores en los cálculos
+  const hoy = new Date()
+  hoy.setHours(0, 0, 0, 0) // Establece la hora actual a medianoche
+  const rentButton = document.getElementById('rentButton') // Obtener el botón por su ID
+
+  if (inicio && fin && !isNaN(inicio.getTime()) && !isNaN(fin.getTime())) {
+    if (inicio >= hoy && inicio < fin) {
+      const differenceInTime = fin - inicio // Calcula la diferencia en milisegundos
+      const differenceInDays = differenceInTime / (1000 * 3600 * 24) // Convierte la diferencia en milisegundos a días
+      costoEstimado.value = differenceInDays * costo// Calcula el costo estimado
+      rentButton.disabled = false // Habilita el botón si las fechas son correctas
+    } else {
+      console.log('fechas incorrectas')
+      alert('Las fechas proporcionadas no son válidas. Por favor revise que la fecha de inicio sea hoy o una fecha futura y que la fecha de fin sea posterior a la fecha de inicio.')
+      costoEstimado.value = 0
+      rentButton.disabled = true // Inhabilita el botón si las fechas son incorrectas
+    }
   } else {
-    costoEstimado.value = ''
+    costoEstimado.value = '';
+    rentButton.disabled = true // Inhabilita el botón si hay algún problema con las fechas
   }
 }
 
