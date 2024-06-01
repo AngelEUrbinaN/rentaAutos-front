@@ -19,6 +19,13 @@
           <form id="pagarForm" method="POST" action="../rentaAutos-back/index.php">
             <input type="hidden" name="accion" value="pagar">
 
+            <!-- ID Renta -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="idRenta" class="form-control form-control-lg"
+                placeholder="idRenta" name="idRenta"/>
+              <label class="form-label" for="idRenta">idRenta</label>
+            </div>
+
             <!-- Monto -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="text" id="monto" class="form-control form-control-lg"

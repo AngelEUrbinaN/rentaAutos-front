@@ -51,7 +51,7 @@ const loadAllAutosByUser = id => {
 							if (renta.rent_finReal === null) {
 								rentasEnDeuda.push(renta)
 							} else {
-									console.log('Renta finalizada => ', renta.renta_id);
+								console.log('Renta finalizada => ', renta.renta_id);
 							}
 					})
 			} else {

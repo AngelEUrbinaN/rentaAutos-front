@@ -16,9 +16,50 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <!-- Form para registrar el pago -->
+          <form id="pagarForm" method="POST" action="../rentaAutos-back/index.php">
+            <input type="hidden" name="accion" value="pagar">
+
+            <!-- ID Renta -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="idRenta" class="form-control form-control-lg"
+                placeholder="idRenta" name="idRenta"/>
+              <label class="form-label" for="idRenta">idRenta</label>
+            </div>
+
+            <!-- Monto -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="monto" class="form-control form-control-lg"
+                placeholder="monto" name="monto"/>
+              <label class="form-label" for="monto">monto</label>
+            </div>
+
+            <!-- Fecha -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="date" id="fecha" class="form-control form-control-lg"
+                placeholder="fecha" name="fecha"/>
+              <label class="form-label" for="fecha">fecha</label>
+            </div>
+
+            <!-- Metodo -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="metodo" class="form-control form-control-lg"
+                placeholder="metodo" name="metodo"/>
+              <label class="form-label" for="metodo">metodo</label>
+            </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" value="Pagar"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Pagar</button>
+            </div>
+          </form>
+          
+          <!--Form para actualizar la renta con fecha de fin y marcar el auto como disponible-->
+
           <form id="finalizarForm" method="POST" action="../rentaAutos-back/index.php">
             <input type="hidden" name="accion" value="finalizar">
-            <input type="hidden" name="id" id="id">
+            <input type="text" name="id" id="id">
+            <input type="text" name="idAuto" id="idAuto">
 
             <!-- Fecha de inicio  -->
             <div data-mdb-input-init class="form-outline mb-4">
@@ -34,18 +75,11 @@
               <label class="form-label" for="diaFin">diaFin</label>
             </div>
 
-            <!-- Fecha de hoy -->
+            <!-- Fin real -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="finReal" class="form-control form-control-lg"
+              <input type="date" id="finReal" class="form-control form-control-lg"
                 placeholder="finReal" name="finReal" readonly/>
               <label class="form-label" for="finReal">finReal</label>
-            </div>
-
-            <!-- Costo por día  -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="costoDia" class="form-control form-control-lg"
-                placeholder="costoDia" name="costoDia" readonly/>
-              <label class="form-label" for="costoDia">costoDia</label>
             </div>
 
             <!-- Costo estimado -->
@@ -61,17 +95,60 @@
                 placeholder="costoReal" name="costoReal" readonly/>
               <label class="form-label" for="costoReal">costoReal</label>
             </div>
-  
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" value="Finalizar"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Rentar</button>
-            </div>
+            
           </form>
         </div>
-        <form id="idFormFinalizar" method="POST" style="display: none;">
+        
+        <!-- Form para buscar la informacion completa de la renta-->
+        <form id="idFormRenta" method="POST" style="display: none;">
             <input type="hidden" name="accion" id="accion">
             <input type="hidden" name="rentaID" id="rentaID">
+        </form>
+
+        <div>
+          <!-- Form para buscar la informacion completa del carro-->
+          <form id="idFormAuto" method="POST" style="display: none;">
+            <input type="hidden" name="accion" id="accionAuto">
+            <input type="hidden" name="autID" id="autID">
           </form>
+
+          <!-- Inputs para desplegar la informacion del carro-->
+          <!-- Asientos -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="asientos" class="form-control form-control-lg"
+              placeholder="asientos" name="asientos" readonly/>
+            <label class="form-label" for="asientos">asientos</label>
+          </div>
+
+          <!-- CostoDia -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="costoDiaNH" class="form-control form-control-lg"
+              placeholder="costoDiaNH" name="costoDiaNH" readonly/>
+            <label class="form-label" for="costoDiaNH">costoDiaNH</label>
+          </div>
+
+          <!-- Modelo -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="modelo" class="form-control form-control-lg"
+              placeholder="modelo" name="modelo" readonly/>
+            <label class="form-label" for="modelo">modelo</label>
+          </div>
+
+          <!-- Localización -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="localizacion" class="form-control form-control-lg"
+              placeholder="localizacion" name="localizacion" readonly/>
+            <label class="form-label" for="localizacion">localizacion</label>
+          </div>
+        </div>
+
+          <!-- Localización -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="transmision" class="form-control form-control-lg"
+              placeholder="transmision" name="transmision" readonly/>
+            <label class="form-label" for="transmision">transmision</label>
+          </div>
+        </div>
       </div>
     </div>
   </section>

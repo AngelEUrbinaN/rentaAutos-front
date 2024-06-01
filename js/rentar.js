@@ -81,6 +81,7 @@ pintarAutoData = (auto) => {
 }
 
 
+
 const calcularCostoEstimado = () => {
   const inicio = new Date(diaInicio.value + 'T00:00:00') // Asegura que la fecha se interprete correctamente en la zona horaria local
   const fin = new Date(diaFin.value + 'T00:00:00')
