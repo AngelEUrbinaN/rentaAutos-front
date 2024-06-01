@@ -73,6 +73,7 @@ if (rentarForm){
 pintarAutoData = (auto) => {
   asientos.value = auto.auto.aut_asientos
   costoDiaNH.value = auto.auto.aut_costoDia
+  costoDia.value = auto.auto.aut_costoDia
   modelo.value = auto.auto.aut_modelo
   localizacion.value = auto.auto.aut_localizacion
   transmision.value = auto.auto.aut_transmision
@@ -82,6 +83,7 @@ const calcularCostoEstimado = () => {
   const inicio = new Date(diaInicio.value);
   const fin = new Date(diaFin.value);
   const costo = costoDia.value
+  
   console.log(diaInicio.value)
 
   // Si la fecha de inicio y fin existen y no son nulos

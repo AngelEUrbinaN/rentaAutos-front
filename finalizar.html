@@ -36,16 +36,9 @@
 
             <!-- Fecha de hoy -->
             <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="finReal" class="form-control form-control-lg"
+              <input type="date" id="finReal" class="form-control form-control-lg"
                 placeholder="finReal" name="finReal" readonly/>
               <label class="form-label" for="finReal">finReal</label>
-            </div>
-
-            <!-- Costo por día  -->
-            <div data-mdb-input-init class="form-outline mb-4">
-              <input type="text" id="costoDia" class="form-control form-control-lg"
-                placeholder="costoDia" name="costoDia" readonly/>
-              <label class="form-label" for="costoDia">costoDia</label>
             </div>
 
             <!-- Costo estimado -->
@@ -71,7 +64,49 @@
         <form id="idFormFinalizar" method="POST" style="display: none;">
             <input type="hidden" name="accion" id="accion">
             <input type="hidden" name="rentaID" id="rentaID">
+        </form>
+        <div>
+          <!-- Asientos -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="asientos" class="form-control form-control-lg"
+              placeholder="asientos" name="asientos" readonly/>
+            <label class="form-label" for="asientos">asientos</label>
+          </div>
+
+          <!-- CostoDia -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="costoDiaNH" class="form-control form-control-lg"
+              placeholder="costoDiaNH" name="costoDiaNH" readonly/>
+            <label class="form-label" for="costoDiaNH">costoDiaNH</label>
+          </div>
+
+          <!-- Modelo -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="modelo" class="form-control form-control-lg"
+              placeholder="modelo" name="modelo" readonly/>
+            <label class="form-label" for="modelo">modelo</label>
+          </div>
+
+          <!-- Localización -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="localizacion" class="form-control form-control-lg"
+              placeholder="localizacion" name="localizacion" readonly/>
+            <label class="form-label" for="localizacion">localizacion</label>
+          </div>
+        </div>
+
+          <!-- Localización -->
+          <div data-mdb-input-init class="form-outline mb-4">
+            <input type="text" id="transmision" class="form-control form-control-lg"
+              placeholder="transmision" name="transmision" readonly/>
+            <label class="form-label" for="transmision">transmision</label>
+          </div>
+
+          <form id="idFormAuto" method="POST" style="display: none;">
+            <input type="hidden" name="accion" id="accionAuto">
+            <input type="hidden" name="autID" id="autID">
           </form>
+        </div>
       </div>
     </div>
   </section>
