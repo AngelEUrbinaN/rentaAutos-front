@@ -14,6 +14,13 @@ let costoDia = document.getElementById('costoDia')
 let inputAutoId = document.getElementById('autID')
 let inputAccion = document.getElementById('accion')
 
+// Establecer campos para el auto
+let asientos = document.getElementById('asientos')
+let costoDiaNH = document.getElementById('costoDiaNH')
+let modelo = document.getElementById('modelo')
+let localizacion = document.getElementById('localizacion')
+let transmision = document.getElementById('transmision')
+
 document.addEventListener('DOMContentLoaded', async () => {
   // Obtener parámetros del URL
   const params = new URLSearchParams(window.location.search)
@@ -31,10 +38,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     idAuto.value = autoId
     // Establecer el costo por día con una promesa
     try {
-      const costo = await obtenerCostoDia(autoId);
-      costoDia.value = costo;
+      const autoData = await obtenerAutoData(autoId)
+      console.log('AutoData => ', autoData)
+      pintarAutoData(autoData)
     } catch (error) {
-      console.log('Error al obtener el costo del día:', error);
+      console.log('Error al obtener el auto:', error)
     }
   }
 })
@@ -62,6 +70,14 @@ if (rentarForm){
     })
 }
 
+pintarAutoData = (auto) => {
+  asientos.value = auto.auto.aut_asientos
+  costoDiaNH.value = auto.auto.aut_costoDia
+  modelo.value = auto.auto.aut_modelo
+  localizacion.value = auto.auto.aut_localizacion
+  transmision.value = auto.auto.aut_transmision
+}
+
 const calcularCostoEstimado = () => {
   const inicio = new Date(diaInicio.value);
   const fin = new Date(diaFin.value);
@@ -79,9 +95,9 @@ const calcularCostoEstimado = () => {
   }
 }
 
-const obtenerCostoDia = id => {
+const obtenerAutoData = id => {
   inputAutoId.value = id
-  inputAccion.value = 'buscarCostoDia'
+  inputAccion.value = 'buscarAutoData'
   const form = new FormData(idFormCosto)
 
   return fetch('../rentaAutos-back/index.php', {
@@ -90,8 +106,7 @@ const obtenerCostoDia = id => {
   })
   .then((response) => response.json())
   .then((data) => {
-    console.log('@@@ costo => ', data.costoDia.aut_costoDia)
-    return data.costoDia.aut_costoDia
+    return data
   })
   .catch((err) => {
     console.log('@@@ err => ', err)
