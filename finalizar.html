@@ -16,6 +16,7 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <!-- Form para registrar el pago -->
           <form id="pagarForm" method="POST" action="../rentaAutos-back/index.php">
             <input type="hidden" name="accion" value="pagar">
 
@@ -52,10 +53,13 @@
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Pagar</button>
             </div>
           </form>
+          
+          <!--Form para actualizar la renta con fecha de fin y marcar el auto como disponible-->
 
           <form id="finalizarForm" method="POST" action="../rentaAutos-back/index.php">
             <input type="hidden" name="accion" value="finalizar">
-            <input type="hidden" name="id" id="id">
+            <input type="text" name="id" id="id">
+            <input type="text" name="idAuto" id="idAuto">
 
             <!-- Fecha de inicio  -->
             <div data-mdb-input-init class="form-outline mb-4">
@@ -71,7 +75,7 @@
               <label class="form-label" for="diaFin">diaFin</label>
             </div>
 
-            <!-- Fecha de hoy -->
+            <!-- Fin real -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="date" id="finReal" class="form-control form-control-lg"
                 placeholder="finReal" name="finReal" readonly/>
@@ -94,11 +98,21 @@
             
           </form>
         </div>
-        <form id="idFormFinalizar" method="POST" style="display: none;">
+        
+        <!-- Form para buscar la informacion completa de la renta-->
+        <form id="idFormRenta" method="POST" style="display: none;">
             <input type="hidden" name="accion" id="accion">
             <input type="hidden" name="rentaID" id="rentaID">
         </form>
+
         <div>
+          <!-- Form para buscar la informacion completa del carro-->
+          <form id="idFormAuto" method="POST" style="display: none;">
+            <input type="hidden" name="accion" id="accionAuto">
+            <input type="hidden" name="autID" id="autID">
+          </form>
+
+          <!-- Inputs para desplegar la informacion del carro-->
           <!-- Asientos -->
           <div data-mdb-input-init class="form-outline mb-4">
             <input type="text" id="asientos" class="form-control form-control-lg"
@@ -134,11 +148,6 @@
               placeholder="transmision" name="transmision" readonly/>
             <label class="form-label" for="transmision">transmision</label>
           </div>
-
-          <form id="idFormAuto" method="POST" style="display: none;">
-            <input type="hidden" name="accion" id="accionAuto">
-            <input type="hidden" name="autID" id="autID">
-          </form>
         </div>
       </div>
     </div>
