@@ -72,6 +72,7 @@ if (rentarForm){
 
 
 pintarAutoData = (auto) => {
+  document.getElementById('imgAuto').src = auto.auto.aut_imagen;
   document.getElementById('infoAsientos').textContent = auto.auto.aut_asientos;
   document.getElementById('infoCostoDia').textContent = auto.auto.aut_costoDia;
   document.getElementById('costoDia').value = auto.auto.aut_costoDia; // Si todavía necesitas este para otra lógica de formulario
