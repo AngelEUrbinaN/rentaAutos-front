@@ -1,44 +1,29 @@
-/* Estilo del navbar con degradado */
-.navbar-custom {
-    background: linear-gradient(to right, #000000, #000080);
-}
-
-.navbar-brand, .nav-link {
-    color: #ffffff !important;
-}
-
-.nav-link:hover {
-    color: #cccccc !important;
-}
-
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.container {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.small-img {
-    width: 100%; 
-    max-width: 500px; 
-    height: auto; 
-    margin: 0 auto; 
-}
-
-h2 {
-    text-align: center;
-}
-
-.form-control-wide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50vh;
-}
-
-.b, .h2 {
-    font-family: 'Roboto', sans-serif;
+body {
+    font-family: 'Arial', sans-serif; /* Fuente más moderna */
+  }
+  
+  h2 {
+    color: #333; /* Color más oscuro para mejor contraste */
+  }
+  
+  .form-label {
+    color: #666; /* Color más suave para las etiquetas */
+  }
+  
+  .btn-primary {
+    background-color: #0056b3; /* Color azul característico */
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #004494; /* Un tono más oscuro al pasar el mouse */
+  }
+  
+  .info-coche h5 {
+    color: #0056b3; /* Cambia el color según tu paleta de diseño */
     font-weight: bold;
-}
+  }
+  .info-coche p {
+    font-size: 0.9rem;
+    color: #333; /* Texto más oscuro para mejorar la legibilidad */
+  }

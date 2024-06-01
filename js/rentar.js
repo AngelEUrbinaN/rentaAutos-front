@@ -98,6 +98,8 @@ const obtenerCostoDia = id => {
   })
 }
 
+
+
 // Para actualizar el costo estimado cada vez que haya un cambio en las fechas
 diaInicio.addEventListener('change', calcularCostoEstimado);
 diaFin.addEventListener('change', calcularCostoEstimado);
