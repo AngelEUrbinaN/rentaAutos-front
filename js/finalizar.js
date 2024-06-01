@@ -25,6 +25,13 @@ const idFormAuto = document.getElementById('idFormAuto')
 let inputAutoId = document.getElementById('autID')
 let inputAccionAuto = document.getElementById('accionAuto')
 
+// Form para pagar la renta
+const pagarForm = document.getElementById('pagarForm') || null
+let idRenta = document.getElementById('idRenta')
+const monto = document.getElementById('monto')
+const fecha = document.getElementById('fecha')
+const metodo = document.getElementById('metodo')
+
 const obtenerAllData = id => {
     inputRentaId.value = id
     inputAccion.value = 'obtenerAllData'
@@ -63,6 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (rentaId) {
     console.log('@@ idRenta => ', rentaId)
     inputRentaId.value = rentaId
+    idRenta.value = rentaId
 
     try {
         const rentaData = await obtenerAllData(rentaId)
@@ -77,6 +85,48 @@ document.addEventListener('DOMContentLoaded', async () => {
     
   }
 })
+
+if (pagarForm){
+  pagarForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+    const form = new FormData(pagarForm)
+  
+    fetch('../rentaAutos-back/index.php', {
+      method: 'POST',
+      body: form
+    })
+    .then((response) => response.json())
+    .then ((res) => {
+      console.log('@@ res =>', res)
+      if (res.message === 'Pago Registrado Satisfactoriamente') {
+        console.log('Waos, se registro el pago')
+        // window.location.href = `../rentaAutos-front/home.html`
+    }
+    })
+    .catch((err) => {
+      console.log('@@ err =>', err)
+    }) 
+    
+    form = new FormData(finalizarForm)
+    
+      fetch('../rentaAutos-back/index.php', {
+        method: 'POST',
+        body: form
+      })
+      .then((response) => response.json())
+      .then ((res) => {
+        console.log('@@ res =>', res)
+        if (res.message === 'Renta Registrada Satisfactoriamente') {
+          console.log('Maracatanga, sí se registró')
+          window.location.href = `../rentaAutos-front/home.html`
+      }
+      })
+      .catch((err) => {
+        console.log('@@ err =>', err)
+      })   
+
+  })
+}
 
 const pintarRentaData = (rentaData) => {
   diaInicio.value = rentaData.rent_diaInicio
@@ -138,13 +188,12 @@ const calcularCostoReal = () => {
   hoy.setHours(0, 0, 0, 0) // Establece la hora actual a medianoche
   const inicio = new Date(diaInicio.value + 'T00:00:00')
   const costo = costoDiaNH.value
-  console.log('Inicio => ', inicio.getTime())
-  console.log('Hoy => ', hoy.getTime())
 
   const differenceInTime = hoy.getTime() - inicio.getTime()
   const differenceInDays = differenceInTime / (1000 * 3600 * 24)
-  console.log('Resta => ', differenceInDays)
   const resultado = differenceInDays
   finReal.value = hoy.getFullYear() + '-' + String(hoy.getMonth() + 1).padStart(2, '0') + '-' + String(hoy.getDate()).padStart(2, '0')
-  costoReal.value = resultado * costo
+  costoReal.value = resultado * costo + '.00'
+  fecha.value = finReal.value
+  monto.value = costoReal.value
 }

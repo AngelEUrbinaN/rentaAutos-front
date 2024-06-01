@@ -16,6 +16,43 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form id="pagarForm" method="POST" action="../rentaAutos-back/index.php">
+            <input type="hidden" name="accion" value="pagar">
+
+            <!-- ID Renta -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="idRenta" class="form-control form-control-lg"
+                placeholder="idRenta" name="idRenta"/>
+              <label class="form-label" for="idRenta">idRenta</label>
+            </div>
+
+            <!-- Monto -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="monto" class="form-control form-control-lg"
+                placeholder="monto" name="monto"/>
+              <label class="form-label" for="monto">monto</label>
+            </div>
+
+            <!-- Fecha -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="date" id="fecha" class="form-control form-control-lg"
+                placeholder="fecha" name="fecha"/>
+              <label class="form-label" for="fecha">fecha</label>
+            </div>
+
+            <!-- Metodo -->
+            <div data-mdb-input-init class="form-outline mb-4">
+              <input type="text" id="metodo" class="form-control form-control-lg"
+                placeholder="metodo" name="metodo"/>
+              <label class="form-label" for="metodo">metodo</label>
+            </div>
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" value="Pagar"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Pagar</button>
+            </div>
+          </form>
+
           <form id="finalizarForm" method="POST" action="../rentaAutos-back/index.php">
             <input type="hidden" name="accion" value="finalizar">
             <input type="hidden" name="id" id="id">
@@ -54,11 +91,7 @@
                 placeholder="costoReal" name="costoReal" readonly/>
               <label class="form-label" for="costoReal">costoReal</label>
             </div>
-  
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" value="Finalizar"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Rentar</button>
-            </div>
+            
           </form>
         </div>
         <form id="idFormFinalizar" method="POST" style="display: none;">
