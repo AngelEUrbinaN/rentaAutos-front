@@ -125,6 +125,15 @@ const obtenerAutoData = id => {
   })
 }
 
+function logout() {
+  // Eliminar el ID del usuario de localStorage
+  localStorage.removeItem('userID');
+  
+  // Redireccionar al usuario a la página de inicio de sesión
+  window.location.href = 'login.html';
+}
+
+
 
 
 // Para actualizar el costo estimado cada vez que haya un cambio en las fechas
