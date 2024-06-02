@@ -1,0 +1,59 @@
+/* login.css */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF; /* Fondo blanco */
+}
+
+.centered-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-custom {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none; /* Sin bordes */
+    box-shadow: none; /* Sin sombra */
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-control, .input-group-text {
+    height: 48px;
+}
+
+.input-group .input-group-text {
+    cursor: pointer;
+    align-items: center;
+}
+
+.btn-block {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 0; /* Elimina el margen inferior del botón si es necesario */
+}
+
+.form-control, .btn {
+    height: 48px; /* Asegura que los botones y los campos de entrada tengan el mismo tamaño de altura */
+    width: 100%; /* Asegura que los botones y los campos de entrada ocupen todo el ancho disponible */
+}
+
+.big-title {
+    font-size: 3.5rem; /* Tamaño grande para el título de bienvenida */
+    margin-bottom: 0.5rem; /* Espaciado después del título */
+}
+
+.small-title {
+    font-size: 1rem; /* Tamaño más pequeño para el texto explicativo */
+    margin-bottom: 1.5rem; /* Espaciado más grande para separar del título */
+}
+
+.no-account {
+    font-size: 1rem; /* Tamaño apropiado para la invitación a registrarse */
+    margin-bottom: 0rem; /* Espaciado reducido para acercar al botón */
+    margin-top: 10px;
+}
