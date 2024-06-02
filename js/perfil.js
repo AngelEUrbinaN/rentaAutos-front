@@ -49,3 +49,19 @@ const obtenerDatosUsuario = id => {
         console.log('@@@ err => ', err)
     })
 }
+
+window.onload = () => {
+    if (userID) {
+        console.log('@@ id => ', userID)
+        obtenerDatosUsuario(userID)
+    }
+}
+
+
+const logout = () => {
+    // Eliminar el ID del usuario de localStorage
+    localStorage.removeItem('userID');
+    
+    // Redireccionar al usuario a la página de inicio de sesión
+    window.location.href = 'login.html';
+  }

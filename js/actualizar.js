@@ -65,7 +65,7 @@ if (actualizarForm){
       .then ((res) => {
         console.log('@@ res =>', res)
         if (res.message === 'Usuario Actualizado Satisfactoriamente') {
-          window.location.href = '../rentaAutos-front/home.html'
+          window.location.href = '../rentaAutos-front/perfil.html'
       }
       })
       .catch((err) => {

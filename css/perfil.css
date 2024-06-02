@@ -13,7 +13,7 @@ body {
     overflow: hidden;
 }
 
-.topbar a{
+.topbar a, .topbar button {
     float: right;
     color: whitesmoke;
     text-align: center;
@@ -61,6 +61,12 @@ body {
     opacity: 0.5; /* Ajusta la transparencia (1 es completamente opaco, 0 es completamente transparente) */
     cursor: pointer;
     transition: opacity 0.3s ease; /* Añade una transición suave para la opacidad */
+}
+
+.no-border {
+    border: none;
+    background-color: transparent;
+    color: whitesmoke;
 }
 
 h1:hover .edit-icon {

@@ -4,94 +4,71 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Actualizar</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/actualizar.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+  <div class="wrapper">
+    <form id="actualizarForm" method="POST" action="../backend/index.php">
+      <input type="hidden" name="accion" value="actualizarUsuario">
+      <input type="hidden" name="id" id="id">
 
-  <section class="vh-100">
-    <div class="container-fluid h-custom">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://e7.pngegg.com/pngimages/338/824/png-clipart-mexican-cuisine-mr-taco-logo-taco-catering-fresh-94566.png"
-            class="img-fluid" alt="Sample image">
+      <h1> Update </h1>
+      <div class="input-box">
+        <div class="input-field">
+          <input type="text" id="nombre" name="nombre" placeholder="Name" required>
+          <i class="bx bxs-user"></i>
         </div>
-        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form id="actualizarForm" method="POST" action="../backend/index.php">
-            <input type="hidden" name="accion" value="actualizarUsuario">
-            <input type="hidden" name="id" id="id">
+        <div class="input-field">
+          <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+          <i class="bx bxs-user"></i>
+        </div>
+      </div>
 
-            <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-              <p class="lead fw-normal mb-0 me-3">Sign up right now!</p>
-            </div>
-  
-            <!-- Nombre -->
-            <div class="form-group col-md-6">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese su nombre" required>
+        <div class="input-box">
+          <div class="input-field">
+            <input type="email" id="correo" name="correo" placeholder="Email" required>
+            <i class="bx bxs-envelope"></i>
           </div>
-
-          <!-- Apellidos -->
-          <div class="form-group col-md-6">
-              <label for="apellidos">Apellidos</label>
-              <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Ingrese sus apellidos" required>
+          <div class="input-field">
+            <input type="number" id="telefono" name="telefono" placeholder="teléfono" required>
+            <i class="bx bxs-phone"></i>
           </div>
+        </div>
 
-          <!-- Fecha Nacimiento -->
-          <div class="form-group col-md-6">
-              <label for="fechaNacimiento">Fecha de Nacimiento</label>
-              <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" placeholder="aaaa/mm/dd" pattern="\d{4}/\d{2}/\d{2}" required>
+        <div class="input-box">
+          <div class="input-field">
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="aaaa/mm/dd" pattern="\d{4}/\d{2}/\d{2}" required>
+            <i class="bx bxs-cake"></i>
           </div>
-
-          <!-- Género -->
-          <div class="form-group col-md-6">
-              <label for="genero">Género</label>
-              <select id="genero" name="genero" class="form-control custom-select" required>
-                  <option value="">Selecciona una opción</option>
+          <div class="input-field">
+            <select name="genero" id="genero" required>
+              <option value="">Selecciona una opción</option>
                   <option value="Hombre">Hombre</option>
                   <option value="Mujer">Mujer</option>
                   <option value="No Especificar">No especificar</option>
-              </select>
+            </select>
+            <i class="bx bx-male-female"></i>
           </div>
-
-          <!-- Correo -->
-          <div class="form-group col-md-6">
-              <label for="correo">Correo</label>
-              <input type="email" id="correo" name="correo" class="form-control" placeholder="Ingrese su correo" required>
-          </div>
-
-          <!-- Teléfono -->
-          <div class="form-group col-md-6">
-              <label for="telefono">Teléfono</label>
-              <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese su teléfono" required>
-          </div>
-
-          <!-- Dirección -->
-          <div class="form-group col-md-6">
-              <label for="direccion">Dirección</label>
-              <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese su dirección" required>
-          </div>
-
-          <!-- Passowrd -->
-          <div class="form-group col-md-6">
-            <label for="password">password</label>
-            <input type="text" id="password" name="password" class="form-control" placeholder="Ingrese su password" required>
-          </div>
-  
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" value="Registar"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;">Update</button>
-            </div>
-          </form>
         </div>
-                    
-        <form id="idFormUpdate" method="POST" style="display: none;">
-          <input type="hidden" name="accion" id="accion">
-          <input type="hidden" name="idUpdate" id="idUpdate">
-          <!-- Usuario input-->
-        </form>
+
+      <div class="input-box">
+        <div class="input-field">
+          <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+          <i class="bx bxs-edit-location"></i>
+        </div>
+        <div class="input-field">
+          <input type="password" id="password" name="password" placeholder="Password" required>
+          <i class="bx bxs-lock-alt"></i>
+        </div>
       </div>
-    </div>
-  </section>
+      <button type="submit" class="btn">Update</button>
+    </form>
+    <form id="idFormUpdate" method="POST" style="display: none;">
+      <input type="hidden" name="accion" id="accion">
+      <input type="hidden" name="idUpdate" id="idUpdate">
+    </form>
+  </div>
 
   <script src="./js/actualizar.js"></script>
 </body>
