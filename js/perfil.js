@@ -22,6 +22,9 @@ let inputUserId = document.getElementById('idUser')
 let inputAccionAutos = document.getElementById('accionAutos')
 const fragment = document.createDocumentFragment()
 
+const verDetalles = document.getElementById('verDetalles')
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     if (userID) {
@@ -30,6 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         loadAllAutosByUser(userID)
     }
 })
+
+
 
 const obtenerDatosUsuario = id => {
     inputId.value = id
@@ -88,9 +93,27 @@ const loadAllAutosByUser = id => {
 	.then((data) => {
 		const rentasEnDeuda = []
 			if (data.success) {
+                const lista = document.getElementById('listaRentas')
+                lista.innerHTML = ''
 					data.rentas.forEach((renta) => {
 							if (renta.rent_finReal === null) {
+                                const elemento = document.createElement('li')
+                                elemento.className = 'list-group-item d-flex justify-content-between align-items-center'
+                                elemento.textContent =`${renta.aut_modelo}`
+                                
+                                const btn = document.createElement('button')
+                                btn.textContent = 'Ver Detalles'
+                                btn.style.marginLeft = '10px'
+                                btn.className = 'btn btn-primary'
+                                btn.addEventListener('click', (e) =>{
+                                    e.preventDefault()
+                                    mostrarDetalles(renta)
+                                })
+                                const separation = document.createElement('hr')
+
 								rentasEnDeuda.push(renta)
+                                elemento.appendChild(btn)
+                                lista.appendChild(elemento)
 							} else {
 								console.log('Renta finalizada => ', renta.renta_id);
 							}
@@ -133,4 +156,13 @@ const pintarAutosByUser = (rentasEnDeuda) => {
         }
     })
     autosEnDeudaBody.appendChild(fragment)
+}
+
+const mostrarDetalles = (renta) => {
+    const modalContent = document.getElementById('modalContent')
+    modalContent.innerHTML = `Modelo del auto: ${renta.aut_modelo}<br>Fecha de inicio: ${renta.rent_diaInicio}<br>Fecha Estimada de entrega: ${renta.rent_diaFin}<br>Costo Estimado: $${renta.rent_costoEstimado}`
+    var myModal = new bootstrap.Modal(document.getElementById('detallesModal'), {
+        keyboard: false
+    })
+    myModal.show()
 }
