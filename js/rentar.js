@@ -81,8 +81,6 @@ pintarAutoData = (auto) => {
   document.getElementById('infoTransmision').textContent = auto.auto.aut_transmision;
 }
 
-
-
 const calcularCostoEstimado = () => {
   const inicio = new Date(diaInicio.value + 'T00:00:00') // Asegura que la fecha se interprete correctamente en la zona horaria local
   const fin = new Date(diaFin.value + 'T00:00:00')
@@ -134,9 +132,6 @@ function logout() {
   // Redireccionar al usuario a la página de inicio de sesión
   window.location.href = 'login.html';
 }
-
-
-
 
 // Para actualizar el costo estimado cada vez que haya un cambio en las fechas
 diaInicio.addEventListener('change', calcularCostoEstimado);

@@ -118,7 +118,37 @@
                 <input type="hidden" name="accion" id="accion">
                 <input type="hidden" name="idUpdate" id="idUpdate">
                 <!-- Usuario input-->
-              </form>
+            </form>
+            <h4>MIS AUTOS RENTADOS</h4>
+
+            <div class="container mt-4">
+                <div class="row" id="autosEnDeudaBody">
+                    <!-- Las tarjetas se insertarán aquí -->
+                </div>
+            </div>
+
+            <template id="cardAutosEnDeuda">
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="card h-100 card-custom">
+                        <img src="" class="card-img-top" alt="Imagen del auto">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <p class="card-text">
+                                <b>Asientos: </b><span class="asientos"></span> <br>
+                                <b>Transmisión: </b><span class="transmision"></span> <br>
+                                <b>Costo al Día: </b><span class="costo"></span> <br>
+                                <b>Disponible: </b><span class="disponible"></span> <br>
+                                <b>Localización: </b><span class="localizacion"></span>
+                            </p>
+                            <button class="btn btn-danger">Finalizar servicio</button>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <form id="idForm" method="POST" style="display: none;">
+                <input type="hidden" name="accion" id="accionAutos">
+                <input type="hidden" name="idUser" id="idUser">
+            </form>
         </div>
     </div>
     <script src="./js/perfil.js"></script>
