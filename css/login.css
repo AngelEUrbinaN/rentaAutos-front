@@ -57,3 +57,13 @@ body, html {
     margin-bottom: 0rem; /* Espaciado reducido para acercar al botón */
     margin-top: 10px;
 }
+
+.register-link {
+    color: #007bff; /* Azul Bootstrap para enlaces */
+    text-decoration: none; /* Opcional, elimina el subrayado */
+}
+
+.register-link:hover, .register-link:focus {
+    text-decoration: underline; /* Añade subrayado al pasar el mouse o enfocar para destacar que es clickeable */
+    color: #0056b3; /* Un azul más oscuro para el efecto hover */
+}
