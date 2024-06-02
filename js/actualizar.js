@@ -54,7 +54,38 @@ const obtenerDatosUsuario = id => {
 
 if (actualizarForm){
     actualizarForm.addEventListener('submit', (event) => {
-      event.preventDefault() //para hacer refresh
+        event.preventDefault() //para hacer refresh
+
+        const password = document.getElementById('password').value
+        const fechaNacimientoInput = document.getElementById('fechaNacimiento').value
+        const telefono = document.getElementById('telefono').value
+        const fechaNacimiento = new Date(fechaNacimientoInput)
+        const fechaActual = new Date()
+
+        let edad = fechaActual.getFullYear() - fechaNacimiento.getFullYear()
+        const mes = fechaActual.getMonth() - fechaNacimiento.getMonth()
+        if (mes < 0 || (mes === 0 && fechaActual.getDate()< fechaNacimiento.getDate())){
+        edad--
+        }
+
+        console.log('Longitud de la contraseña: ', password.length)
+        console.log('edad del usuario: ', edad)
+        console.log('Número de teléfono: ', telefono)
+
+        if (password.length < 8){
+        alert('La contraseña debe contener al menos 8 caracteres')
+        return
+        }
+
+        if (edad < 18 ){
+        alert('Debes ser mayor edad para registrarte')
+        return
+        }
+
+        if (telefono.length !== 10 || !/^\d{10}$/.test(telefono)) {
+        alert('El teléfono debe contener 10 digitos')
+        return
+        }
       const form = new FormData(actualizarForm)
     
       fetch('../rentaAutos-back/index.php', {
