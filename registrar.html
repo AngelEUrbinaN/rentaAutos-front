@@ -4,85 +4,83 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrar - Autos</title>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./css/registrar.css">
 </head>
 <body>
-  <div class="container">
-    <div class="form-container">
-        <form id="registrarForm" method="POST" action="../rentaAutos-back/index.php">
-            <input type="hidden" name="accion" value="registrar">
-
-            <div class="form-title">Sign up right now!</div>
-
-            <!-- Form Grid -->
-            <div class="form-row">
-                <!-- Nombre -->
-                <div class="form-group col-md-6">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingrese su nombre" required>
-                </div>
-
-                <!-- Apellidos -->
-                <div class="form-group col-md-6">
-                    <label for="apellidos">Apellidos</label>
-                    <input type="text" id="apellidos" name="apellidos" class="form-control" placeholder="Ingrese sus apellidos" required>
-                </div>
-
-                <!-- Fecha Nacimiento -->
-                <div class="form-group col-md-6">
-                    <label for="fechaNacimiento">Fecha de Nacimiento</label>
-                    <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control" placeholder="aaaa/mm/dd" pattern="\d{4}/\d{2}/\d{2}" required>
-                </div>
-
-                <!-- Género -->
-                <div class="form-group col-md-6">
-                    <label for="genero">Género</label>
-                    <select id="genero" name="genero" class="form-control custom-select" required>
-                        <option value="">Selecciona una opción</option>
-                        <option value="Hombre">Hombre</option>
-                        <option value="Mujer">Mujer</option>
-                        <option value="No Especificar">No especificar</option>
-                    </select>
-                </div>
-
-                <!-- Correo -->
-                <div class="form-group col-md-6">
-                    <label for="correo">Correo</label>
-                    <input type="email" id="correo" name="correo" class="form-control" placeholder="Ingrese su correo" required>
-                </div>
-
-                <!-- Teléfono -->
-                <div class="form-group col-md-6">
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" id="telefono" name="telefono" class="form-control" placeholder="Ingrese su teléfono" required>
-                </div>
-
-                <!-- Dirección -->
-                <div class="form-group col-md-6">
-                    <label for="direccion">Dirección</label>
-                    <input type="text" id="direccion" name="direccion" class="form-control" placeholder="Ingrese su dirección" required>
-                </div>
-
-                <!-- Password -->
-                <div class="form-group col-md-6 password-group">
-                    <label for="password">Password</label>
-                    <div class="input-group">
-                        <input type="password" id="password" name="password" class="form-control" placeholder="Ingrese una contraseña" required>
-                        <div class="input-group-append">
-                            <span class="input-group-text toggle-password" onclick="togglePasswordVisibility()">
-                                <i class="bi bi-eye" id="togglePasswordIcon"></i>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+    <div class="wrapper">
+        <form id="registrarForm" method="POST" action="../backend/index.php">
+          <input type="hidden" name="accion" value="registrar">
+    
+          <h1> ¡Regístrate! </h1>
+          <div class="input-box">
+            <div class="input-field">
+              <input type="text" id="nombre" name="nombre" placeholder="Name" required>
+              <i class="bx bxs-user"></i>
             </div>
+            <div class="input-field">
+              <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos" required>
+              <i class="bx bxs-user"></i>
+            </div>
+          </div>
+    
+            <div class="input-box">
+              <div class="input-field">
+                <input type="email" id="correo" name="correo" placeholder="Email" required>
+                <i class="bx bxs-envelope"></i>
+              </div>
+              <div class="input-field">
+                <input type="number" id="telefono" name="telefono" placeholder="teléfono" required>
+                <i class="bx bxs-phone"></i>
+              </div>
+            </div>
+    
+            <div class="input-box">
+              <div class="input-field">
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" placeholder="aaaa/mm/dd" pattern="\d{4}/\d{2}/\d{2}" required>
+                <i class="bx bxs-cake"></i>
+              </div>
+              <div class="input-field">
+                <select name="genero" id="genero" required>
+                  <option value="">Selecciona una opción</option>
+                      <option value="Hombre">Hombre</option>
+                      <option value="Mujer">Mujer</option>
+                      <option value="No Especificar">No especificar</option>
+                </select>
+                <i class="bx bx-male-female"></i>
+              </div>
+            </div>
+    
+          <div class="input-box">
+            <div class="input-field">
+              <input type="text" id="direccion" name="direccion" placeholder="Dirección" required>
+              <i class="bx bxs-edit-location"></i>
+            </div>
+            <div class="input-field">
+              <input type="password" id="password" name="password" placeholder="Password" required>
+              <span class="toggle-password input-group-append" onclick="togglePasswordVisibility()">
+                <i class="bx bxs-low-vision" id="togglePasswordIcon"></i>
+              </span>
+            </div>
+          </div>
 
-            <button type="submit" class="btn btn-gradient btn-block">Sign up</button>
+          <div class="input-box">
+            <div class="input-field">
+              <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirma tu Password" required>
+              <span class="toggle-password input-group-append" onclick="togglePasswordVisibility()">
+                <i class="bx bxs-low-vision" id="togglePasswordIcon"></i>
+              </span>
+            </div>
+          </div>
+          <button type="submit" class="btn">Registrar</button>
         </form>
-    </div>
-  </div>
+        <form id="idFormUpdate" method="POST" style="display: none;">
+          <input type="hidden" name="accion" id="accion">
+          <input type="hidden" name="idUpdate" id="idUpdate">
+        </form>
+      </div>
 
   <script src="./js/app.js"></script>
   <script src="./js/registrar.js"></script>

@@ -1,62 +1,110 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #000000 0%, #0c44fa 30%, #0c44fa 50%, #0c44fa 70%, #000000 100%);
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-.container {
+body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    background: #fff no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
-.form-container {
-    background-color: #e0f7fa; /* Light blue background */
-    padding: 20px;
+.wrapper {
+    width: 750px;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(50px);
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px; /* Adjusted for better layout */
-    width: 100%;
+    color: #000;
+    padding: 40px 35px 55px;
 }
-
-.form-title {
-    font-size: 24px;
-    margin-bottom: 20px;
+.wrapper h1 {
+    font-size: 36px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.wrapper .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.form-group label {
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.password-group {
+.input-box .input-field {
     position: relative;
+    width: 48%;
+    height: 50px;
+    margin: 13px 0;
 }
 
-.input-group-append {
-    cursor: pointer;
-}
-
-.btn-primary, .btn-gradient {
-    margin-top: 20px;
-    padding: 10px;
+.input-box .input-field input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
     font-size: 16px;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background: #1639ad; /* Gradient from blue to black */
+    color: #000;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
 }
 
-.btn-gradient:hover {
-    background: #000000; /* Inverted gradient on hover */
-    color: white;
+.input-box .input-field input::placeholder {
+    color: #000;
+}
+
+.input-box .input-field select {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
+    font-size: 16px;
+    color: #000;
+    border-radius: 6px;
+    padding: 15px 15px 15px 40px;
+}
+
+.input-box .input-field select::placeholder {
+    color: #000;
+}
+
+.input-box .input-field i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper label {
+    display: inline-block;
+    font-size: 14.5px;
+    margin: 10px 0 23px; 
+}
+
+.wrapper label input{
+    accent-color: #000;
+    margin-right: 5px;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background: #000;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
 }

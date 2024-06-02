@@ -31,6 +31,7 @@ if (registrarForm){
     event.preventDefault() //para hacer refresh
     const password = document.getElementById('password').value
     const fechaNacimientoInput = document.getElementById('fechaNacimiento').value
+    const confirmPassword = document.getElementById('confirmPassword').value
     const telefono = document.getElementById('telefono').value
     const fechaNacimiento = new Date(fechaNacimientoInput)
     const fechaActual = new Date()
@@ -57,6 +58,11 @@ if (registrarForm){
 
     if (telefono.length !== 10 || !/^\d{10}$/.test(telefono)) {
       alert('El teléfono debe contener 10 digitos')
+      return
+    }
+
+    if (confirmPassword != password) {
+      alert('Las contraseñas no coinciden')
       return
     }
 

@@ -5,11 +5,11 @@ function togglePasswordVisibility() {
     
     if (passwordInput.type === 'password') {
         passwordInput.type = 'text';
-        passwordToggleIcon.classList.remove('bi-eye')
-        passwordToggleIcon.classList.add('bi-eye-slash')
+        passwordToggleIcon.classList.remove('bxs-low-vision')
+        passwordToggleIcon.classList.add('bxs-show')
     } else {
         passwordInput.type = 'password';
-        passwordToggleIcon.classList.remove('bi-eye-slash')
-        passwordToggleIcon.classList.add('bi-eye')
+        passwordToggleIcon.classList.remove('bxs-show')
+        passwordToggleIcon.classList.add('bxs-low-vision')
     }
 }
