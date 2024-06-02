@@ -36,6 +36,8 @@ const monto = document.getElementById('monto')
 const fecha = document.getElementById('fecha')
 const metodo = document.getElementById('metodo')
 
+let multa = document.getElementById('multa')
+
 // Funciones para obtener información desde el back //
 // Obtener información de la renta
 const obtenerAllData = id => {
@@ -186,13 +188,33 @@ const calcularCostoReal = () => {
   const hoy = new Date()
   hoy.setHours(0, 0, 0, 0) // Establece la hora actual a medianoche
   const inicio = new Date(diaInicio.value + 'T00:00:00')
-  const costo = costoDiaNH.value
+  const fin = new Date(diaFin.value + 'T00:00:00')
 
-  const differenceInTime = hoy.getTime() - inicio.getTime()
-  const differenceInDays = differenceInTime / (1000 * 3600 * 24)
-  const resultado = differenceInDays
+  const diferenciaEnTiempo = hoy.getTime() - fin.getTime()
+  const diferenciaEnDias = diferenciaEnTiempo / (1000 * 3600 * 24)
+
+  console.log('Diferencia En Dias => ', diferenciaEnDias)
+  if (diferenciaEnDias === 0) {
+    multa.value = 0
+  } else if (diferenciaEnDias < 0) {
+    if (hoy < inicio) {
+      multa.value = 0
+    } else {
+      multa.value = diferenciaEnDias * costoDiaNH.value * (-1.25)
+    }
+  } else if (diferenciaEnDias > 0) {
+    multa.value = diferenciaEnDias * costoDiaNH.value * 1.50
+  }
+
   finReal.value = hoy.getFullYear() + '-' + String(hoy.getMonth() + 1).padStart(2, '0') + '-' + String(hoy.getDate()).padStart(2, '0')
-  costoReal.value = resultado * costo + '.00'
   fecha.value = finReal.value
-  monto.value = costoReal.value
+  const costoFinal = Math.floor(parseFloat(costoEstimado.value)) + Math.floor(parseFloat(multa.value))
+  
+  if (hoy < inicio) {
+    monto.value = 0.00
+    costoReal.value = 0.00
+  } else {
+    costoReal.value = costoFinal + '.00'
+    monto.value = costoReal.value
+  }
 }
