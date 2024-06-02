@@ -17,14 +17,14 @@
             <h3 class="card-title text-center small-title">Por favor, llena los siguientes campos para acceder a tu cuenta.</h3>
             <form action="../rentaAutos-back/index.php" method="post" id="loginForm">
                 <input type="hidden" name="accion" value="login">
-                <div class="form-outline mb-3">
+                <div class="form-outline mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
                     <input type="text" id="correo" class="form-control" name="correo" placeholder="Correo"/>
                 </div>
-                <div class="form-outline mb-3">
-                    <div class="input-group">
-                        <input type="password" id="password" class="form-control" name="password" placeholder="Contraseña"/>
-                        <span class="input-group-text"><i class="bi bi-eye-slash" id="toggleIcon" onclick="togglePasswordVisibility()"></i></span>
-                    </div>
+                <div class="form-outline mb-3 input-group">
+                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <input type="password" id="password" class="form-control" name="password" placeholder="Contraseña"/>
+                    <span class="input-group-text"><i class="bi bi-eye-slash" id="toggleIcon" onclick="togglePasswordVisibility()"></i></span>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Iniciar sesión</button>
                 <h3 class="card-title text-center no-account">¿No tienes cuenta? <a href="registrar.html" class="register-link">Regístrate</a></h3>
