@@ -157,7 +157,7 @@ const actualizarRenta = () => {
     console.log('@@ res =>', res)
     if (res.message === 'Renta Actualizada Satisfactoriamente') {
       console.log('Waos, renta actualizada')
-      // window.location.href = `../rentaAutos-front/home.html`
+      window.location.href = `../rentaAutos-front/home.html`
   }
   })
   .catch((err) => {

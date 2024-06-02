@@ -1,0 +1,48 @@
+/* Estilo del navbar con degradado */
+.navbar-custom {
+    background: linear-gradient(to right, #000000, #000080);
+}
+
+.navbar-brand, .nav-link {
+    color: #ffffff !important;
+}
+
+.nav-link:hover {
+    color: #cccccc !important;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer a {
+    color: white;
+}
+
+.footer a:hover {
+    color: #d4d4d4;
+    text-decoration: none;
+}
+
+/* Asegura que el contenido no se superponga con el navbar y el footer */
+.content-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    min-height: calc(100vh - 140px);
+}
+
+/* Centrar el título de las tarjetas */
+.card-title {
+    text-align: center;
+}
+
+/* Separación entre los datos */
+.form-outline {
+    margin-bottom: 1.5rem;
+}
