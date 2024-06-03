@@ -18,6 +18,7 @@ let inputRentaId = document.getElementById('rentaID')
 let inputAccion = document.getElementById('accion')
 
 // Establecer campos para el auto
+let imgAuto = document.getElementById('imgAuto')
 let asientos = document.getElementById('asientos')
 let costoDiaNH = document.getElementById('costoDiaNH')
 let modelo = document.getElementById('modelo')
@@ -175,6 +176,7 @@ const pintarRentaData = (rentaData) => {
 
 // Coloca la información del auto en los inputs
 const pintarAutoData = (auto) => {
+  imgAuto.src = auto.auto.aut_imagen
   asientos.value = auto.auto.aut_asientos
   costoDiaNH.value = auto.auto.aut_costoDia
   modelo.value = auto.auto.aut_modelo

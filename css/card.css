@@ -16,7 +16,8 @@ body {
 }
 
 .title {
-    text-align: left; 
+    display: flex;
+    text-align: center;
     font-family: Arial Black; 
     font-weight: bold; font-size: 30px; 
     background: #202020; 

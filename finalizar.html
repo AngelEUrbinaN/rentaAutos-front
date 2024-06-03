@@ -33,8 +33,7 @@
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center min-vh-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://e7.pngegg.com/pngimages/338/824/png-clipart-mexican-cuisine-mr-taco-logo-taco-catering-fresh-94566.png"
-            class="img-fluid" alt="Sample image">
+          <img src="" id="imgAuto" class="img-fluid" alt="Imagen del Auto">
           <!-- Tarjeta de detalles del coche -->
           <div class="card mt-4">
             <div class="card-body">
@@ -117,7 +116,7 @@
               <!-- Multa -->
               <div data-mdb-input-init class="form-outline mb-4">
                 <label class="form-label" for="multa">Multa (Entrega tardía o temprana por día)</label>
-                <input type="text" id="multa" class="form-control form-control-lg" name="multa"/>
+                <input type="text" id="multa" class="form-control form-control-lg" name="multa" readonly/>
               </div>
               
               <!-- Form para registrar el pago -->
@@ -132,13 +131,13 @@
                 <!-- Monto -->
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="monto">Monto</label>
-                  <input type="text" id="monto" class="form-control form-control-lg" name="monto" required />
+                  <input type="text" id="monto" class="form-control form-control-lg" name="monto" readonly required />
                 </div>
 
                 <!-- Fecha -->
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="fecha">Fecha</label>
-                  <input type="date" id="fecha" class="form-control form-control-lg" name="fecha" required />
+                  <input type="date" id="fecha" class="form-control form-control-lg" name="fecha" readonly required />
                 </div>
 
                 <!-- Metodo -->
@@ -187,9 +186,8 @@
             <div class="col-md-4">
                 <h5>Auto Renta</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Home</a></li>
+                    <li><a href="./home.html" class="text-white">Home</a></li>
                     <li><a href="./perfil.html" class="text-white">Perfil</a></li>
-                    <li><a href="#" class="text-white">Contacto</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
