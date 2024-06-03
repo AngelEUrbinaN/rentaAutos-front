@@ -33,8 +33,7 @@
     <div class="container-fluid h-custom">
       <div class="row d-flex justify-content-center align-items-center min-vh-100">
         <div class="col-md-9 col-lg-6 col-xl-5">
-          <img src="https://e7.pngegg.com/pngimages/338/824/png-clipart-mexican-cuisine-mr-taco-logo-taco-catering-fresh-94566.png"
-            class="img-fluid" alt="Sample image">
+          <img src="" id="imgAuto" class="img-fluid" alt="Imagen del Auto">
           <!-- Tarjeta de detalles del coche -->
           <div class="card mt-4">
             <div class="card-body">
@@ -117,7 +116,7 @@
               <!-- Multa -->
               <div data-mdb-input-init class="form-outline mb-4">
                 <label class="form-label" for="multa">Multa (Entrega tardía o temprana por día)</label>
-                <input type="text" id="multa" class="form-control form-control-lg" name="multa"/>
+                <input type="text" id="multa" class="form-control form-control-lg" name="multa" readonly/>
               </div>
               
               <!-- Form para registrar el pago -->
@@ -132,13 +131,13 @@
                 <!-- Monto -->
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="monto">Monto</label>
-                  <input type="text" id="monto" class="form-control form-control-lg" name="monto" required />
+                  <input type="text" id="monto" class="form-control form-control-lg" name="monto" readonly required />
                 </div>
 
                 <!-- Fecha -->
                 <div data-mdb-input-init class="form-outline mb-4">
                   <label class="form-label" for="fecha">Fecha</label>
-                  <input type="date" id="fecha" class="form-control form-control-lg" name="fecha" required />
+                  <input type="date" id="fecha" class="form-control form-control-lg" name="fecha" readonly required />
                 </div>
 
                 <!-- Metodo -->
@@ -146,9 +145,11 @@
                   <label class="form-label" for="metodo">Método</label>
                   <select id="metodo" class="form-control form-control-lg" name="metodo" onchange="mostrarCamposAdicionales()" required>
                     <option value="" disabled selected>Seleccione un método</option>
-                    <option value="tarjeta">Tarjeta Electrónica</option>
-                    <option value="paypal">Paypal</option>
-                    <option value="efectivo">Efectivo</option>
+                    <option value="Mercado Pago">Mercado Pago</option>
+                    <option value="VISA">VISA</option>
+                    <option value="MasterCard">MasterCard</option>
+                    <option value="Paypal">Paypal</option>
+                    <option value="Efectivo">Efectivo</option>
                   </select>
                 </div>
 
@@ -187,9 +188,8 @@
             <div class="col-md-4">
                 <h5>Auto Renta</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#" class="text-white">Home</a></li>
+                    <li><a href="./home.html" class="text-white">Home</a></li>
                     <li><a href="./perfil.html" class="text-white">Perfil</a></li>
-                    <li><a href="#" class="text-white">Contacto</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
@@ -220,7 +220,7 @@
       const camposAdicionales = document.getElementById('camposAdicionales');
       camposAdicionales.innerHTML = '';
 
-      if (metodo === 'tarjeta') {
+      if (metodo === 'MasterCard') {
         camposAdicionales.innerHTML = `
           <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="numeroTarjeta">Número de Tarjeta</label>
@@ -235,7 +235,22 @@
             <input type="text" id="cvv" class="form-control form-control-lg" name="cvv" required pattern="\\d{3}" />
           </div>
         `;
-      } else if (metodo === 'paypal') {
+      } else if (metodo === 'VISA') {
+        camposAdicionales.innerHTML = `
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="numeroTarjeta">Número de Tarjeta</label>
+            <input type="text" id="numeroTarjeta" class="form-control form-control-lg" name="numeroTarjeta" required pattern="\\d{16}" />
+          </div>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="nombreTarjeta">Propietario de la tarjeta</label>
+            <input type="text" id="nombreTarjeta" class="form-control form-control-lg" name="nombreTarjeta" required />
+          </div>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="cvv">CVV</label>
+            <input type="text" id="cvv" class="form-control form-control-lg" name="cvv" required pattern="\\d{3}" />
+          </div>
+        `;
+      } else if (metodo === 'Paypal') {
         camposAdicionales.innerHTML = `
           <div data-mdb-input-init class="form-outline mb-4">
             <label class="form-label" for="correoPaypal">Correo de Paypal</label>
@@ -246,7 +261,18 @@
             <input type="password" id="passwordPaypal" class="form-control form-control-lg" name="passwordPaypal" required />
           </div>
         `;
-      } else if (metodo === 'efectivo') {
+      } else if (metodo === 'Mercado Pago') {
+        camposAdicionales.innerHTML = `
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="correoMercado">Correo de Mercado Pago</label>
+            <input type="email" id="correoMercado" class="form-control form-control-lg" name="correoMercado" required pattern="^[a-zA-Z0-9._%+-]+@gmail\\.com$" />
+          </div>
+          <div data-mdb-input-init class="form-outline mb-4">
+            <label class="form-label" for="passwordMercado">Password</label>
+            <input type="password" id="passwordMercado" class="form-control form-control-lg" name="passworMercado" required />
+          </div>
+        `;
+      } else if (metodo === 'Efectivo') {
       }
     }
 
