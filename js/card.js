@@ -130,6 +130,6 @@ const logout = () => {
     localStorage.removeItem('userID');
     
     // Redireccionar al usuario a la página de inicio de sesión
-    window.location.href = 'login.html';
+    window.location.href = 'home.html';
   }
   

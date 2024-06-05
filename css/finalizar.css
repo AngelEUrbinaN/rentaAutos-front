@@ -1,7 +1,14 @@
 /* Estilo del navbar con degradado */
 .navbar-custom {
-    background: linear-gradient(to right, #000000, #000080);
+    background: linear-gradient(to right, #000000, #000000);
 }
+
+.btn-outline-light:hover, .btn-outline-light:focus {
+    color: #000; /* Cambio de color del texto al pasar el mouse */
+    background-color: #FFD700; /* Fondo al pasar el mouse */
+    border-color: #FFD700; /* Borde al pasar el mouse */
+}
+
 
 .navbar-brand, .nav-link {
     color: #ffffff !important;

@@ -10,7 +10,7 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to right, #000000, #000080);">
+  <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to right, #000000, #000000);">
     <div class="container-fluid">
       <a class="navbar-brand" href="#inicio" style="color: #FFF;">BeeCars</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,7 +22,16 @@
             <a class="nav-link active" href="home.html" style="color: #FFF;">Home</a>
             <a class="nav-link" href="Perfil.html" style="color: #FFF;">Perfil</a>
           </div>
-          <button class="btn btn-outline-light ms-3" type="button" onclick="logout()">Cerrar Sesión</button>
+          <button class="btn btn-outline-light ms-3" type="button" onclick="logout()" 
+            style="color: #FFF; 
+                  background-color: transparent; 
+                  border-color: #FFF;"
+            onmouseover="this.style.color='#000';this.style.backgroundColor='#FFD700';this.style.borderColor='#FFD700';"
+            onmouseout="this.style.color='#FFF';this.style.backgroundColor='transparent';this.style.borderColor='#FFF';"
+            onfocus="this.style.color='#000';this.style.backgroundColor='#FFD700';this.style.borderColor='#FFD700';"
+            onblur="this.style.color='#FFF';this.style.backgroundColor='transparent';this.style.borderColor='#FFF';">
+            Cerrar Sesión
+          </button>
         </div>
       </div>
     </div>
