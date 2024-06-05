@@ -136,11 +136,10 @@ const pintarAutos = (autos) => {
     autosBody.appendChild(fragment)
 }
 
-const logout = () => {
+function logout() {
     // Eliminar el ID del usuario de localStorage
     localStorage.removeItem('userID');
     
     // Redireccionar al usuario a la página de inicio de sesión
-    window.location.href = 'home.html';
+    window.location.href = 'login.html';
   }
-  
