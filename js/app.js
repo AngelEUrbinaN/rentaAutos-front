@@ -5,7 +5,6 @@ const signUpButton = document.getElementById('signUp') || null
 document.addEventListener('DOMContentLoaded', function () {
   // Limpiar el localStorage
   localStorage.clear();
-  console.log('LocalStorage borrado');
 });
 
 if (loginForm) {
@@ -19,9 +18,7 @@ if (loginForm) {
     })
     .then((response) => response.json())
     .then ((res) => {
-      console.log('@@ res =>', res)
       if (res.message === 'Inicio Satisfactorio') {
-        console.log('usu_id => ', res.data.usu_id)
         localStorage.setItem("userID",res.data.usu_id)
         window.location.href = `../rentaAutos-front/home.html`
     }
@@ -47,10 +44,6 @@ if (registrarForm){
     if (mes < 0 || (mes === 0 && fechaActual.getDate()< fechaNacimiento.getDate())){
       edad--
     }
-
-    console.log('Longitud de la contraseña: ', password.length)
-    console.log('edad del usuario: ', edad)
-    console.log('Número de teléfono: ', telefono)
 
     if (password.length < 8){
       alert('La contraseña debe contener al menos 8 caracteres')
@@ -80,9 +73,7 @@ if (registrarForm){
     })
     .then((response) => response.json())
     .then ((res) => {
-      console.log('@@ res =>', res)
       if (res.message === 'Usuario Registrado Satisfactoriamente') {
-        console.log('Qué chingón, se logró')
         window.location.href = '../rentaAutos-front/index.html'
     }
     })

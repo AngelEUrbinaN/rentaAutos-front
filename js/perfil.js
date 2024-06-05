@@ -28,7 +28,6 @@ const verDetalles = document.getElementById('verDetalles')
 document.addEventListener('DOMContentLoaded', () => {
 
     if (userID) {
-        console.log('@@ id => ', userID)
         obtenerDatosUsuario(userID)
         loadAllAutosByUser(userID)
     }
@@ -47,7 +46,6 @@ const obtenerDatosUsuario = id => {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log('@@@ data => ', data)
         if (data.success) {
             idUser.value = data.user.usu_id
             nombreCompleto.value = data.user.usu_nombre + " " + data.user.usu_apellidos
@@ -66,7 +64,6 @@ const obtenerDatosUsuario = id => {
 
 window.onload = () => {
     if (userID) {
-        console.log('@@ id => ', userID)
         obtenerDatosUsuario(userID)
     }
 }
@@ -121,7 +118,6 @@ const loadAllAutosByUser = id => {
 			} else {
 					console.log('No se pudo obtener los datos')
 			}
-			console.log(rentasEnDeuda)
 		pintarAutosByUser(rentasEnDeuda)
 	})
 	.catch((err) => {

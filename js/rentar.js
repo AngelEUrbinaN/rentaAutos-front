@@ -26,20 +26,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search)
   const autoId = params.get('auto')
 
-  console.log(params)
-
   if (userID) {
-      console.log('@@ idUser => ', userID)
       idUser.value = userID
   }
 
   if (autoId) {
-    console.log('@@ idAuto => ', autoId)
     idAuto.value = autoId
     // Establecer el costo por día con una promesa
     try {
       const autoData = await obtenerAutoData(autoId)
-      console.log('AutoData => ', autoData)
       pintarAutoData(autoData)
     } catch (error) {
       console.log('Error al obtener el auto:', error)
@@ -58,9 +53,7 @@ if (rentarForm){
       })
       .then((response) => response.json())
       .then ((res) => {
-        console.log('@@ res =>', res)
         if (res.message === 'Renta Registrada Satisfactoriamente') {
-          console.log('Maracatanga, sí se registró')
           window.location.href = `../rentaAutos-front/home.html`
       }
       })
@@ -96,7 +89,6 @@ const calcularCostoEstimado = () => {
       costoEstimado.value = differenceInDays * costo// Calcula el costo estimado
       rentButton.disabled = false // Habilita el botón si las fechas son correctas
     } else {
-      console.log('fechas incorrectas')
       alert('Las fechas proporcionadas no son válidas. Por favor revise que la fecha de inicio sea hoy o una fecha futura y que la fecha de fin sea posterior a la fecha de inicio.')
       costoEstimado.value = 0
       rentButton.disabled = true // Inhabilita el botón si las fechas son incorrectas

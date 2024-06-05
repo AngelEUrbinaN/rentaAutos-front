@@ -44,9 +44,6 @@ const obtenerAllData = id => {
     inputRentaId.value = id
     inputAccion.value = 'obtenerAllData'
     const form = new FormData(idFormRenta)
-
-    console.log('form id value =>', form.get('rentaID'))
-    console.log('form accion value =>', form.get('accion'))
   
     return fetch('../rentaAutos-back/index.php', {
       method: 'POST',
@@ -54,12 +51,10 @@ const obtenerAllData = id => {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log('@@@ renta => ', data)
       return data.renta
       //return data
     })
     .catch((err) => {
-      console.log('@@@ err => ', err)
       return null
     })
 }
@@ -91,14 +86,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const params = new URLSearchParams(window.location.search)
   const rentaId = params.get('renta')
 
-  console.log(params)
-
-  if (userID) {
-      console.log('@@ idUser => ', userID)
-  }
-
   if (rentaId) {
-    console.log('@@ idRenta => ', rentaId)
     inputRentaId.value = rentaId
     idRenta.value = rentaId
     idFinalizar.value = rentaId
@@ -106,11 +94,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         const rentaData = await obtenerAllData(rentaId)
         if (rentaData.rent_usu_id != userID) {
-          console.log('Nel perro 2')
           window.location.href = `../rentaAutos-front/error403.html`
         } else {
         pintarRentaData(rentaData)
-        console.log(rentaData)
         const autoData = await obtenerAutoData(rentaData.rent_aut_id)
         pintarAutoData(autoData)
         calcularCostoReal()
@@ -135,9 +121,7 @@ if (pagarForm){
     })
     .then((response) => response.json())
     .then ((res) => {
-      console.log('@@ res =>', res)
       if (res.message === 'Pago Registrado Satisfactoriamente') {
-        console.log('Waos, se registro el pago')
         actualizarRenta()
         // window.location.href = `../rentaAutos-front/home.html`
     }
@@ -159,9 +143,7 @@ const actualizarRenta = () => {
   })
   .then((response) => response.json())
   .then ((res) => {
-    console.log('@@ res =>', res)
     if (res.message === 'Renta Actualizada Satisfactoriamente') {
-      console.log('Waos, renta actualizada')
       window.location.href = `../rentaAutos-front/home.html`
   }
   })
@@ -198,7 +180,6 @@ const calcularCostoReal = () => {
   const diferenciaEnTiempo = hoy.getTime() - fin.getTime()
   const diferenciaEnDias = diferenciaEnTiempo / (1000 * 3600 * 24)
 
-  console.log('Diferencia En Dias => ', diferenciaEnDias)
   if (diferenciaEnDias === 0) {
     multa.value = 0
   } else if (diferenciaEnDias < 0) {

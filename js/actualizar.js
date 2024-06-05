@@ -18,7 +18,6 @@ let inputAccion = document.getElementById('accion')
 document.addEventListener('DOMContentLoaded', () => {
 
     if (userID) {
-        console.log('@@ id => ', userID)
         obtenerDatosUsuario(userID)
     }
 })
@@ -34,7 +33,6 @@ const obtenerDatosUsuario = id => {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log('@@@ data => ', data)
         if (data.success) {
             idUser.value = data.user.usu_id
             nombre.value = data.user.usu_nombre
@@ -68,10 +66,6 @@ if (actualizarForm){
         edad--
         }
 
-        console.log('Longitud de la contraseña: ', password.length)
-        console.log('edad del usuario: ', edad)
-        console.log('Número de teléfono: ', telefono)
-
         if (password.length < 8){
         alert('La contraseña debe contener al menos 8 caracteres')
         return
@@ -94,7 +88,6 @@ if (actualizarForm){
       })
       .then((response) => response.json())
       .then ((res) => {
-        console.log('@@ res =>', res)
         if (res.message === 'Usuario Actualizado Satisfactoriamente') {
           window.location.href = '../rentaAutos-front/perfil.html'
       }
