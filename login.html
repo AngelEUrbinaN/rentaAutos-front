@@ -22,7 +22,7 @@
                     <input type="text" id="correo" class="form-control" name="correo" placeholder="Correo"/>
                 </div>
                 <div class="form-outline mb-3 input-group">
-                    <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                    <span class="input-group-text"><i class="bx bxs-lock-alt"></i></span>
                     <input type="password" id="password" class="form-control" name="password" placeholder="Contraseña"/>
                     <span class="input-group-text"><i class="bx bxs-low-vision" id="toggleIcon" onclick="togglePasswordVisibility()"></i></span>
                 </div>
@@ -39,10 +39,10 @@
         var toggleIcon = document.getElementById('toggleIcon');
         if (passwordInput.type === 'password') {
             passwordInput.type = 'text';
-            toggleIcon.classList.replace('bi-eye-slash', 'bi-eye');
+            toggleIcon.classList.replace('bxs-low-vision', 'bxs-show');
         } else {
             passwordInput.type = 'password';
-            toggleIcon.classList.replace('bi-eye', 'bi-eye-slash');
+            toggleIcon.classList.replace('bxs-show', 'bxs-low-vision');
         }
     }
 </script>
