@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 403</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="warning-box">
+            <h1>Advertencia</h1>
+            <p>Usted está intentando pagar una renta que no le corresponde.</p>
+            <p>Por favor, revise los detalles y asegúrese de que está pagando su propia renta.</p>
+            <button id="backButton">Regresar</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('backButton').addEventListener('click', function () {
+                window.location.href = `../rentaAutos-front/index.html`;
+                });
+        });
+    </script>
+</body>
+</html>

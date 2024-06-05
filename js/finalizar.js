@@ -106,11 +106,16 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         const rentaData = await obtenerAllData(rentaId)
+        if (rentaData.rent_usu_id != userID) {
+          console.log('Nel perro 2')
+          window.location.href = `../rentaAutos-front/error403.html`
+        } else {
         pintarRentaData(rentaData)
         console.log(rentaData)
         const autoData = await obtenerAutoData(rentaData.rent_aut_id)
         pintarAutoData(autoData)
         calcularCostoReal()
+        }
       } catch (error) {
         console.log('Error al obtener datos de la renta:', error)
     }

@@ -8,37 +8,79 @@
     <title>Home</title>
 </head>
 <body>
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">BeeCars</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./perfil.html">Perfil</a>
+                        </li>
+                        <button class="btn btn-outline-light ms-3" type="button" onclick="logout()">Cerrar Sesión</button>
+                    </ul>
+                </div>
+            </div>
+        </nav>
 
-    <nav class="navbar navbar-expand-lg navbar-custom shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">BeeCars</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./perfil.html">Perfil</a>
-                    </li>
-                    <button class="btn btn-outline-light ms-3" type="button" onclick="logout()">Cerrar Sesión</button>
-                </ul>
+        <!-- Header Image -->
+        <div class="header-image">
+            <img src="./images/carrusel/finv3.jpg" alt="Explora el mundo, un coche a la vez">
+        </div>  
+
+        <!-- Content -->
+        <div class="content">
+            <div class="expansion-panel">
+                <h4 class="title panel-title">▸MIS AUTOS RENTADOS</h4>
+                <div class="panel-content">
+                    <div class="container mt-4">
+                        <div class="row" id="autosEnDeudaBody">
+                            <!-- Las tarjetas se insertarán aquí -->
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
 
-    <div class="header-image">
-        <img src="./images/carrusel/finv3.jpg" alt="Explora el mundo, un coche a la vez">
-    </div>    
-
-    <h4 class="title">MIS AUTOS RENTADOS</h4>
-
-    <div class="container mt-4">
-        <div class="row" id="autosEnDeudaBody">
-            <!-- Las tarjetas se insertarán aquí -->
-        </div>
+        <!-- Footer -->
+        <footer class="footer mt-auto py-3 bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Auto Renta</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Home</a></li>
+                            <li><a href="./perfil.html" class="text-white">Perfil</a></li>
+                            <li><a href="#" class="text-white">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Enlaces Útiles</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Términos y Condiciones</a></li>
+                            <li><a href="#" class="text-white">Política de Privacidad</a></li>
+                            <li><a href="#" class="text-white">Ayuda</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contacta con Nosotros</h5>
+                        <p>N°123 Calle Benito Juarez, Salamanca, Mexico</p>
+                        <p>Email: info@autorenta.com</p>
+                        <p>Teléfono: +123 456 7890</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="mb-0">&copy; 2024 Auto Renta. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <template id="cardAutosEnDeuda">
@@ -47,13 +89,13 @@
                 <img src="" class="card-img-top rounded-img" alt="Imagen del auto">
                 <div class="card-body">
                     <h5 class="card-title"></h5>
-                    <hr> <!-- Separador -->
+                    <hr>
                     <p class="card-text">
                         <b>Asientos: </b><span class="asientos"></span> <br>
                         <b>Transmisión: </b><span class="transmision"></span> <br>
                         <b>Costo al Día: </b><span class="costo"></span> <br>
-                        <b>Disponible: </b><span class="disponible"></span> <br>
                         <b>Localización: </b><span class="localizacion"></span>
+                        <b class="hidden">Disponible: </b><span class="disponible hidden"></span> <br>
                     </p>
                     <button class="btn btn-danger btn-form2">Finalizar servicio</button>
                 </div>
@@ -61,39 +103,20 @@
         </div>
     </template>
 
-    <h4 class="title">AUTOS DISPONIBLES</h4>
-
-    <div class="container mt-4">
-        <div class="row" id="autosBody">
-            <!-- Las tarjetas se insertarán aquí -->
-        </div>
-    </div>
-
-    <template id="cardAutos">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
-            <div class="card h-100 card-custom">
-                <img src="" class="card-img-top rounded-img" alt="Imagen del auto">
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <hr> <!-- Separador -->
-                    <p class="card-text">
-                        <b>Asientos: </b><span class="asientos"></span> <br>
-                        <b>Transmisión: </b><span class="transmision"></span> <br>
-                        <b>Costo al Día: </b><span class="costo"></span> <br>
-                        <b>Disponible: </b><span class="disponible"></span> <br>
-                        <b>Localización: </b><span class="localizacion"></span>
-                    </p>
-                    <hr>
-                    <button class="btn btn-danger btn-form">Rentar</button>
+            <div class="expansion-panel">
+                <h4 class="title panel-title">▸AUTOS DISPONIBLES</h4>
+                <div class="panel-content">
+                    <div class="container mt-4">
+                        <div class="row" id="autosBody">
+                            <!-- Las tarjetas se insertarán aquí -->
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </template>
 
-    <form id="idForm" method="POST" style="display: none;">
-        <input type="hidden" name="accion" id="accion">
-        <input type="hidden" name="idUser" id="idUser">
-    </form>
+    
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 bg-dark text-white">
@@ -126,6 +149,85 @@
             </div>
         </div>
     </footer>
+        <!-- Footer -->
+        <footer class="footer mt-auto py-3 bg-dark text-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5>Auto Renta</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Home</a></li>
+                            <li><a href="./perfil.html" class="text-white">Perfil</a></li>
+                            <li><a href="#" class="text-white">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Enlaces Útiles</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="#" class="text-white">Términos y Condiciones</a></li>
+                            <li><a href="#" class="text-white">Política de Privacidad</a></li>
+                            <li><a href="#" class="text-white">Ayuda</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <h5>Contacta con Nosotros</h5>
+                        <p>N°123 Calle Benito Juarez, Salamanca, Mexico</p>
+                        <p>Email: info@autorenta.com</p>
+                        <p>Teléfono: +123 456 7890</p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <p class="mb-0">&copy; 2024 Auto Renta. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <template id="cardAutosEnDeuda">
+        <div class="col-12 col-sm-6 col-md-5 col-lg-3 mb-5">
+            <div class="card h-100 card-custom">
+                <img src="" class="card-img-top rounded-img" alt="Imagen del auto">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <hr>
+                    <p class="card-text">
+                        <b>Asientos: </b><span class="asientos"></span> <br>
+                        <b>Transmisión: </b><span class="transmision"></span> <br>
+                        <b>Costo al Día: </b><span class="costo"></span> <br>
+                        <b>Localización: </b><span class="localizacion"></span>
+                        <b class="hidden">Disponible: </b><span class="disponible hidden"></span> <br>
+                    </p>
+                    <button class="btn btn-danger btn-form2">Finalizar servicio</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="cardAutos">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100 card-custom">
+                <img src="" class="card-img-top rounded-img" alt="Imagen del auto">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <hr>
+                    <p class="card-text">
+                        <b>Asientos: </b><span class="asientos"></span> <br>
+                        <b>Transmisión: </b><span class="transmision"></span> <br>
+                        <b>Costo al Día: </b><span class="costo"></span> <br>
+                        <b>Localización: </b><span class="localizacion"></span>
+                        <b class="hidden">Disponible: </b><span class="disponible hidden"></span> <br>
+                    </p>
+                    <hr>
+                    <button class="btn btn-danger btn-form">Rentar</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <form id="idForm" method="POST" style="display: none;">
+        <input type="hidden" name="accion" id="accion">
+        <input type="hidden" name="idUser" id="idUser">
+    </form>
 </body>
 </html>
 

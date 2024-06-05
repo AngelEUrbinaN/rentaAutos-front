@@ -10,6 +10,8 @@ const idForm = document.getElementById('idForm')
 let inputUserId = document.getElementById('idUser')
 let inputAccion = document.getElementById('accion')
 
+const panels = document.querySelectorAll('.expansion-panel')
+
 document.addEventListener('DOMContentLoaded', () => {
     loadAllAutos()
 
@@ -18,6 +20,15 @@ document.addEventListener('DOMContentLoaded', () => {
         idUser = userID
         loadAllAutosByUser(idUser)
     }
+
+    panels.forEach(panel => {
+        const title = panel.querySelector('.panel-title')
+        title.addEventListener('click', () => {
+            const content = panel.querySelector('.panel-content')
+            const isVisible = content.style.display === 'block'
+            content.style.display = isVisible ? 'none' : 'block'
+        })
+    })
 })
 
 const loadAllAutos = () => {
