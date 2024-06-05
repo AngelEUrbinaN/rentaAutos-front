@@ -2,6 +2,12 @@ const loginForm = document.getElementById('loginForm') || null
 const registrarForm = document.getElementById('registrarForm') || null
 const signUpButton = document.getElementById('signUp') || null
 
+document.addEventListener('DOMContentLoaded', function () {
+  // Limpiar el localStorage
+  localStorage.clear();
+  console.log('LocalStorage borrado');
+});
+
 if (loginForm) {
   loginForm.addEventListener('submit', (event) => {
     event.preventDefault() //para hacer refresh
@@ -13,7 +19,7 @@ if (loginForm) {
     })
     .then((response) => response.json())
     .then ((res) => {
-      //console.log('@@ res =>', res)
+      console.log('@@ res =>', res)
       if (res.message === 'Inicio Satisfactorio') {
         console.log('usu_id => ', res.data.usu_id)
         localStorage.setItem("userID",res.data.usu_id)

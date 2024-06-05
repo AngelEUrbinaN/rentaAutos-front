@@ -1,3 +1,8 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 /* Estilo del navbar con degradado */
 .navbar-custom {
     background: linear-gradient(to right, #000000, #000080);
@@ -24,13 +29,19 @@ body {
     -moz-background-clip: text; 
     background-clip: text; 
     color: transparent; 
+    padding-left: 50px;
     text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
 }
 
 .header-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
+    height: auto;
+}
+
+.header-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Estilo de las tarjetas */
@@ -79,6 +90,16 @@ body {
     border-radius: 0 0 10px 10px; 
 }
 
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content {
+    flex: 1;
+}
+
 .footer {
     background-color: #343a40;
     color: white;
@@ -92,4 +113,31 @@ body {
 .footer a:hover {
     color: #d4d4d4;
     text-decoration: none;
+}
+
+.expansion-panel {
+    border: 0px solid #ccc;
+    border-radius: 4px;
+    margin: 20px;
+    overflow: hidden;
+}
+
+.panel-title {
+    background-color: #f1f1f1;
+    padding: 15px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.panel-content {
+    display: none;
+    padding: 15px;
+}
+
+.panel-content .container {
+    padding: 0;
+}
+
+.hidden {
+    display: none;
 }
