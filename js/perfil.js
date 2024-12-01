@@ -166,3 +166,41 @@ const mostrarDetalles = (renta) => {
     })
     myModal.show()
 }
+
+const confirmarBorrarCuenta = () => {
+    if (confirm("¿Estás seguro de que deseas borrar tu cuenta? Esta acción es irreversible.")) {
+        eliminarUsuario();
+    }
+}
+
+const eliminarUsuario = () => {
+    const userID = localStorage.getItem('userID');
+    if (userID) {
+     
+        const params = new URLSearchParams();
+        params.append('accion', 'eliminarUsuario');
+        params.append('id', userID);
+
+        fetch("../rentaAutos-back/index.php", {
+            method: 'DELETE',
+            body: params.toString(),
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            }
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                alert('Cuenta eliminada con éxito');
+                localStorage.removeItem('userID');
+                window.location.href = 'login.html';
+            } else {
+                alert('Hubo un problema al borrar tu cuenta. Intenta de nuevo.');
+            }
+        })
+        .catch((err) => {
+            console.log('Error al borrar la cuenta:', err);
+            alert('Hubo un error al intentar borrar la cuenta.');
+        });
+    }
+}
